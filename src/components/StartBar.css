@@ -15,18 +15,25 @@
 
 .start-button {
     width: 6rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    font-weight: bold;
     background-color: var(--primaryBg);
-
     border-top: 2px solid white;
     border-right: 2px solid black;
     border-bottom: 2px solid black;
     border-left: 2px solid white;
 }
+
+.start-button span, .start-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.start-button span {
+    outline: 2px dotted black;
+}
+
 .win95-icon {
     max-height: 1.5rem;
     margin-right: .25rem;
