@@ -1,0 +1,32 @@
+:root {
+  --desktopBg: #018281;
+  --primaryBg: #c0c0c0;
+  --secondaryBg: #808080;
+  --hoverBlue: #00007c;
+  --app-height: 100vh;
+}
+
+html {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  overflow: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "default", Times, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
