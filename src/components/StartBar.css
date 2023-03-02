@@ -5,4 +5,48 @@
     background-color: var(--primaryBg);
     border-top: white 2px solid;
     height: 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.start-bar button {
+    margin: .25rem;
+}
+
+.start-button {
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: var(--primaryBg);
+
+    border-top: 2px solid white;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid white;
+}
+.win95-icon {
+    max-height: 1.5rem;
+    margin-right: .25rem;
+}
+.clicked {
+    background-color: #d3d3d3;
+    border-top: 2px solid #9a9a9a;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    border-left: 2px solid #9a9a9a;
+}
+
+.time-button {
+    width: 5rem;
+    background-color: var(--primaryBg);
+    font-size: 1rem;
+
+    border-top: 2px solid #9a9a9a;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    border-left: 2px solid #9a9a9a;
+    height: 2.4rem;
 }
