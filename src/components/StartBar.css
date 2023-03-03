@@ -9,6 +9,9 @@
     justify-content: space-between;
 }
 
+.start-bar-left {
+    display: flex;
+}
 .start-bar button {
     margin: .25rem;
 }
