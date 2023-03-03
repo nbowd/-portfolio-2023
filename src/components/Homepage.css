@@ -6,4 +6,48 @@
     height: var(--app-height);
     max-height: var(--app-height);
     width: 100vw;
-  }
+}
+
+.homepage-items {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0 0 1rem;
+}
+
+.homepage-item {
+  border: 1px solid transparent;
+  margin-bottom: 1.5rem;
+  padding:.25rem;
+
+}
+
+.homepage-item:hover {
+  background-color: rgba(154,154,154, 0.3);
+  border: 1px solid #9a9a9a;
+  padding:.25rem;
+}
+
+.item-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: white;
+}
+
+.item-icon {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item-icon img {
+  height: 4rem;
+  max-height: 5rem;
+  margin-bottom: .25rem;
+}
+
+#minesweeper-icon {
+  height: 3.5rem;
+  max-height: 5rem;
+}
