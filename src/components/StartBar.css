@@ -12,6 +12,7 @@
 .start-bar-left {
     display: flex;
 }
+
 .start-bar button {
     margin: .25rem;
 }
@@ -41,6 +42,17 @@
     max-height: 1.5rem;
     margin-right: .25rem;
 }
+
+.program-button {
+    background-color: var(--primaryBg);
+    width: 11rem;
+    font-size: 1.5rem;
+    border-top: 2px solid white;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid white;
+}
+
 .clicked {
     background-color: #d3d3d3;
     border-top: 2px solid #9a9a9a;
@@ -60,3 +72,4 @@
     border-left: 2px solid #9a9a9a;
     height: 2.4rem;
 }
+

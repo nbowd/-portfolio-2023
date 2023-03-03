@@ -1,5 +1,5 @@
 import './Homepage.css'
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import StartBar from './StartBar';
 import StartMenu from './StartMenu';
 import useDragger from '../hooks/useDragger';
@@ -8,21 +8,28 @@ import BioModal from './BioModal';
 function Homepage() {
     const [openMenu, setOpenMenu] = useState(false);
     const [bioModal, setBioModal] = useState(false);
-
+    const [bioTabVisible, setBioTabVisible] = useState(false);
     // useDragger("pink-box")
 
-    const handleBioOpen = () => {
-      setBioModal(true)
+    const bioTabRef = useRef(null);
+
+    const handleBioOpen = (e) => {
+        if (bioTabVisible) {
+            bioTabRef.current.classList.add('clicked')
+        }
+        setBioModal(true)
+        setBioTabVisible(true)
     }
 
-    const handleBioToggle = () => {
+    const handleBioToggle = (e) => {
+        bioTabRef.current.classList.toggle('clicked')
         setBioModal(!bioModal)
-      
     }
 
-    const handleBioClose = () => {
+    const handleBioClose = (e) => {
+        bioTabRef.current.classList.remove('clicked')
         setBioModal(false)
-      
+        setBioTabVisible(false)
     }
     return (
         <div className='homepage'>
@@ -63,14 +70,14 @@ function Homepage() {
 
             
                 {/* <div className="box" id="pink-box"></div> */}
-            <BioModal props={{bioModal, setBioModal}} />
+            <BioModal props={{bioModal, setBioModal, handleBioClose, handleBioToggle}} />
             {openMenu
                 ?
                 <StartMenu/>
                 :
                 null
             }
-            <StartBar props={{openMenu, setOpenMenu, bioModal, setBioModal}}/>
+            <StartBar props={{openMenu, setOpenMenu, handleBioOpen, handleBioToggle, handleBioClose, bioTabVisible, bioTabRef}}/>
         </div>
     );
 }

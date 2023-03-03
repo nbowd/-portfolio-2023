@@ -4,7 +4,7 @@ import useDragger from "../hooks/useDragger";
 
 function BioModal({props}) {
 
-    const {bioModal, setBioModal} = props;
+    const {bioModal, setBioModal, handleBioClose, handleBioToggle} = props;
 
     const toggleModal = () => {
       setBioModal(!bioModal);
@@ -20,7 +20,7 @@ function BioModal({props}) {
     if (bioModal) {
         useDragger('bio-modal')
     }
-
+ 
     const handleBodyClick = (e) => {
       e.preventDefault();
     }
@@ -35,9 +35,9 @@ function BioModal({props}) {
                             <h2>My Bio</h2>
                         </div>
                         <div className="header-right">
-                            <button>_</button>
+                            <button onClick={handleBioToggle}>_</button>
                             <button>O</button>
-                            <button onClick={toggleModal} className="close-modal">
+                            <button onClick={handleBioClose} className="close-modal">
                                 X
                             </button>
                         </div>
