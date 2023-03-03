@@ -4,7 +4,8 @@ import StartTab from './StartTab';
 
 function StartBar({props}) {
     const [date, setDate] = useState(new Date());
-    const {openMenu, setOpenMenu, handleBioOpen, handleBioToggle, handleBioClose, bioTabVisible, bioTabRef} = props;
+    const {openMenu, setOpenMenu, handleModalOpen, handleModalToggle, handleModalClose, bioProps, tabOrder} = props;
+    const {bioTabRef, bioModal, setBioModal, bioTabVisible, setBioTabVisible} = bioProps;
 
     useEffect(() => {
       let timer = setInterval(()=>setDate(new Date()), 1000);
@@ -12,6 +13,8 @@ function StartBar({props}) {
         clearInterval(timer)
       }
     })
+
+   
 
     return (
         <div className='start-bar'>
@@ -22,15 +25,14 @@ function StartBar({props}) {
                 :
                 <button className='start-button' onClick={()=>setOpenMenu(!openMenu)}><img src="src\assets\win95.png" alt="w95 icon" className='win95-icon'/> Start</button>
                 }
-
+                
                 {bioTabVisible
                 ?
                 // <button className="program-button clicked" onClick={handleBioToggle}>Bio</button>
-                <StartTab props={handleBioToggle} ref={bioTabRef}>Bio</StartTab>
+                <StartTab props={{handleModalToggle, bioProps}} ref={bioTabRef}>Bio</StartTab>
                 :
                 null
-
-              }
+                }
                 
             </div>
     

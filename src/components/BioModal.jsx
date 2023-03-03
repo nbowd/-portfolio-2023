@@ -4,11 +4,8 @@ import useDragger from "../hooks/useDragger";
 
 function BioModal({props}) {
 
-    const {bioModal, setBioModal, handleBioClose, handleBioToggle} = props;
-
-    const toggleModal = () => {
-      setBioModal(!bioModal);
-    }
+    const {bioProps, handleModalClose, handleModalToggle} = props;
+    const {bioTabRef, bioModal, setBioModal, bioTabVisible, setBioTabVisible} = bioProps
 
     if(bioModal) {
         document.body.classList.add('active-modal')
@@ -35,9 +32,9 @@ function BioModal({props}) {
                             <h2>My Bio</h2>
                         </div>
                         <div className="header-right">
-                            <button onClick={handleBioToggle}>_</button>
+                            <button onClick={() => handleModalToggle(bioTabRef, bioModal, setBioModal)}>_</button>
                             <button>O</button>
-                            <button onClick={handleBioClose} className="close-modal">
+                            <button onClick={() => handleModalClose(bioTabRef, setBioModal, setBioTabVisible)} className="close-modal">
                                 X
                             </button>
                         </div>

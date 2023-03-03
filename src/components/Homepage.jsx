@@ -9,32 +9,37 @@ function Homepage() {
     const [openMenu, setOpenMenu] = useState(false);
     const [bioModal, setBioModal] = useState(false);
     const [bioTabVisible, setBioTabVisible] = useState(false);
+    const [tabOrder, setTabOrder] = useState([]);
     // useDragger("pink-box")
 
     const bioTabRef = useRef(null);
 
-    const handleBioOpen = (e) => {
-        if (bioTabVisible) {
-            bioTabRef.current.classList.add('clicked')
+    const bioProps = {bioTabRef, bioModal, setBioModal, bioTabVisible, setBioTabVisible};
+    
+    const handleModalOpen = (ref, tabVisible, setModal, setTabVisible, tabType) => {
+        if (tabVisible) {
+            ref.current.classList.add('clicked');
         }
-        setBioModal(true)
-        setBioTabVisible(true)
+        setModal(true);
+        setTabVisible(true);
+        setTabOrder([...tabOrder, tabType])
     }
 
-    const handleBioToggle = (e) => {
-        bioTabRef.current.classList.toggle('clicked')
-        setBioModal(!bioModal)
+    const handleModalToggle =(ref, modalValue, setModal) => {
+        ref.current.classList.toggle('clicked');
+        setModal(!modalValue)
     }
 
-    const handleBioClose = (e) => {
-        bioTabRef.current.classList.remove('clicked')
-        setBioModal(false)
-        setBioTabVisible(false)
+    const handleModalClose = (ref, setModal, setTabVisible) => {
+        ref.current.classList.remove('clicked')
+        setModal(false)
+        setTabVisible(false)
     }
+
     return (
         <div className='homepage'>
             <div className="homepage-items">
-                <div className="homepage-item" onClick={handleBioOpen}>
+                <div className="homepage-item" onClick={()=>handleModalOpen(bioTabRef, bioTabVisible, setBioModal, setBioTabVisible, 'bio')}>
                     <div className="item-icon">
                         <img src="src\assets\mycomputer.png" alt="" />
                     </div>
@@ -70,14 +75,14 @@ function Homepage() {
 
             
                 {/* <div className="box" id="pink-box"></div> */}
-            <BioModal props={{bioModal, setBioModal, handleBioClose, handleBioToggle}} />
+            <BioModal props={{bioProps, handleModalClose, handleModalToggle}} />
             {openMenu
                 ?
                 <StartMenu/>
                 :
                 null
             }
-            <StartBar props={{openMenu, setOpenMenu, handleBioOpen, handleBioToggle, handleBioClose, bioTabVisible, bioTabRef}}/>
+            <StartBar props={{openMenu, setOpenMenu, handleModalOpen, handleModalToggle, handleModalClose, bioProps, tabOrder}}/>
         </div>
     );
 }
