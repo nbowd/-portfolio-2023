@@ -1,45 +1,25 @@
 import './Homepage.css'
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useContext} from 'react';
 import StartBar from './StartBar';
 import StartMenu from './StartMenu';
-import useDragger from '../hooks/useDragger';
 import BioModal from './BioModal';
+import GlobalContext from '../GlobalContext';
 
 function Homepage() {
+    const { pages, setPages, selected, setSelected } = useContext(GlobalContext);
     const [openMenu, setOpenMenu] = useState(false);
-    const [bioModal, setBioModal] = useState(false);
-    const [bioTabVisible, setBioTabVisible] = useState(false);
-    const [tabOrder, setTabOrder] = useState([]);
-    // useDragger("pink-box")
 
-    const bioTabRef = useRef(null);
-
-    const bioProps = {bioTabRef, bioModal, setBioModal, bioTabVisible, setBioTabVisible};
-    
-    const handleModalOpen = (ref, tabVisible, setModal, setTabVisible, tabType) => {
-        if (tabVisible) {
-            ref.current.classList.add('clicked');
+    const handleClick = (name) => {
+        setSelected(name)
+        if(!pages.includes(name)) {
+            setPages([...pages, name])
         }
-        setModal(true);
-        setTabVisible(true);
-        setTabOrder([...tabOrder, tabType])
-    }
-
-    const handleModalToggle =(ref, modalValue, setModal) => {
-        ref.current.classList.toggle('clicked');
-        setModal(!modalValue)
-    }
-
-    const handleModalClose = (ref, setModal, setTabVisible) => {
-        ref.current.classList.remove('clicked')
-        setModal(false)
-        setTabVisible(false)
     }
 
     return (
         <div className='homepage'>
             <div className="homepage-items">
-                <div className="homepage-item" onClick={()=>handleModalOpen(bioTabRef, bioTabVisible, setBioModal, setBioTabVisible, 'bio')}>
+                <div className="homepage-item" onClick={()=>handleClick('Bio')}>
                     <div className="item-icon">
                         <img src="src\assets\mycomputer.png" alt="" />
                     </div>
@@ -73,16 +53,9 @@ function Homepage() {
                 </div>
             </div>
 
-            
-                {/* <div className="box" id="pink-box"></div> */}
-            <BioModal props={{bioProps, handleModalClose, handleModalToggle}} />
-            {openMenu
-                ?
-                <StartMenu/>
-                :
-                null
-            }
-            <StartBar props={{openMenu, setOpenMenu, handleModalOpen, handleModalToggle, handleModalClose, bioProps, tabOrder}}/>
+            {pages.includes('Bio') && <BioModal />}
+            {openMenu && <StartMenu/>}
+            <StartBar props={{openMenu, setOpenMenu}}/>
         </div>
     );
 }

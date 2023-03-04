@@ -30,3 +30,81 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+body.active-modal {
+  overflow-y: hidden;
+}
+
+
+
+.modal-content {
+  
+  top: 0;
+  left: 0;
+  line-height: 1.4;
+  background: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1px;
+  width: 19rem;
+  height: 31rem;
+  background-color: var(--primaryBg);
+  border-top: 2px solid white;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 2px solid white;
+}
+
+.modal-header {
+  display: flex;
+  background-color: var(--secondaryBg);
+  color: white;
+  line-height: 0;
+  justify-content: space-between;
+  align-items: center;
+  font-size: .75rem;
+  height: 1.5rem;
+}
+
+.modal-body {
+  padding: 14px 28px;
+  height: 100%;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  margin-left: .25rem;
+
+}
+
+.header-left img {
+  max-height: 1.3rem;
+  margin-right: .25rem;
+}
+
+.header-right button{
+  background-color: var(--primaryBg);
+  font-weight: bold;
+  margin:0;
+  margin-right: .2rem;
+}
+.top {
+  position: absolute;
+  height: 20rem;
+  z-index: 100;
+}
+.top .modal-header {
+  background-color: var(--hoverBlue);
+}
+
+.fullscreen {
+  position: absolute;
+  top:0 !important;
+  left:0 !important;  
+  max-height: none;
+  max-width: none;
+  height: 100vh;
+  width: 100vw;
+
+}
