@@ -35,12 +35,13 @@ body.active-modal {
   overflow-y: hidden;
 }
 
-
-
-.modal-content {
-  
-  top: 0;
-  left: 0;
+.Bio, .RecycleBin {
+  padding: 0;
+  margin: 0;
+  touch-action: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: absolute;
   line-height: 1.4;
   background: #f1f1f1;
   display: flex;
@@ -53,9 +54,11 @@ body.active-modal {
   border-right: 2px solid black;
   border-bottom: 2px solid black;
   border-left: 2px solid white;
+
 }
 
 .modal-header {
+  touch-action: none;
   display: flex;
   background-color: var(--secondaryBg);
   color: white;
@@ -66,7 +69,7 @@ body.active-modal {
   height: 1.5rem;
 }
 
-.modal-body {
+.bio-body, .recycle-body {
   padding: 14px 28px;
   height: 100%;
 }
@@ -91,7 +94,6 @@ body.active-modal {
 }
 .top {
   position: absolute;
-  height: 20rem;
   z-index: 100;
 }
 .top .modal-header {

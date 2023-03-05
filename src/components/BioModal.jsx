@@ -35,7 +35,7 @@ function BioModal() {
                     display: pages.includes("Bio") ? "flex": "none"
                 }}
                 ref={bioRef}
-                className={selected === "Bio" ? "modal-content top" : "modal-content"}
+                className={selected === "Bio" ? "Bio top" : "Bio"}
                 id='bio-modal'
             >
                     <div className="modal-header"  >

@@ -3,7 +3,7 @@ import React, {useState, useEffect, useContext, useRef, createRef} from 'react';
 import GlobalContext from '../GlobalContext';
 
 function StartBar({props}) {
-    const {bioRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
+    const {bioRef, recycleRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
 
     const allItemRefs = useRef([]);
 
@@ -22,13 +22,17 @@ function StartBar({props}) {
     })
 
     const handleTabClick = (ref, page) => {
-      console.log('here');
       selected === page ? setSelected("") : setSelected(page);
-      console.log(bioRef.current.style.display, bioRef.current.classList.contains("top"))
       if(page === "Bio") {
         bioRef.current.style.display =
           bioRef.current.style.display === "flex" &&
           bioRef.current.classList.contains("top")
+            ? "none"
+            : "flex";
+      } else if (page === "Recycle Bin") {
+        recycleRef.current.style.display = 
+          recycleRef.current.style.display === "flex" &&
+          recycleRef.current.currentList.contains("top")
             ? "none"
             : "flex";
       }
@@ -50,7 +54,7 @@ function StartBar({props}) {
                     id={page}
                     ref={allItemRefs.current[index]}
                     onClick={() =>  handleTabClick(allItemRefs.current[index], page)}
-                    className={selected ? 'program-button clicked' : 'program-button'}
+                    className={selected === page ? 'program-button clicked' : 'program-button notClicked'}
                   >
                     {page}
                   </button>
