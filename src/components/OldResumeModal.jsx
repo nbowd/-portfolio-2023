@@ -5,7 +5,7 @@ import { useDrag } from "@use-gesture/react";
 import fileIcon from '../assets/file.png'
 import napkin from '../assets/napkin.png'
 
-function OldResume() {
+function OldResumeModal() {
     const {resumeRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
     const [windowPosition, setWindowPosition] = useState({ x: 0, y: 0 });
     const bindWindowPos = useDrag((params) => {
@@ -78,4 +78,4 @@ function OldResume() {
     );
 }
 
-export default OldResume;
+export default OldResumeModal;

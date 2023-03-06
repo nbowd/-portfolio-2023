@@ -6,8 +6,8 @@ import StartBar from './StartBar';
 import StartMenu from './StartMenu';
 import BioModal from './BioModal';
 import RecycleModal from './RecycleModal';
-import OldResume from './OldResume';
-import Projects from './Projects';
+import OldResumeModal from './OldResumeModal';
+import ProjectsModal from './ProjectsModal';
 
 import myComputer from '../assets/mycomputer.png';
 import recycleBin from '../assets/recycle.png'
@@ -73,12 +73,12 @@ function Homepage() {
                 />}
 
             {pages.includes('OldResume') &&
-                <OldResume 
+                <OldResumeModal 
                     display={pages.includes("OldResume") ? "flex" : "none"}
                 />}
 
             {pages.includes('Projects') &&
-                <Projects 
+                <ProjectsModal 
                     display={pages.includes("Projects") ? "flex" : "none"}
                 />}
 

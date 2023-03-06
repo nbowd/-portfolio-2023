@@ -7,7 +7,7 @@ import folderIcon from '../assets/folder.png'
 import fileIcon from '../assets/file.png'
 
 
-function Projects() {
+function ProjectsModal() {
     const {projectsRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
     const [windowPosition, setWindowPosition] = useState({ x: 0, y: 0 });
     const bindWindowPos = useDrag((params) => {
@@ -85,4 +85,4 @@ function Projects() {
     );
 }
 
-export default Projects;
+export default ProjectsModal;
