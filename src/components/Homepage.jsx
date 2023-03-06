@@ -8,6 +8,7 @@ import BioModal from './BioModal';
 import RecycleModal from './RecycleModal';
 import OldResumeModal from './OldResumeModal';
 import ProjectsModal from './ProjectsModal';
+import JamSessionModal from './JamSessionModal';
 
 import myComputer from '../assets/mycomputer.png';
 import recycleBin from '../assets/recycle.png'
@@ -62,25 +63,15 @@ function Homepage() {
                 </div>
             </div>
 
-            {pages.includes('Bio') && 
-                <BioModal
-                    display={ pages.includes("Bio") ? "flex": "none"}
-                />}
+            {pages.includes('Bio') && <BioModal/>}
 
-            {pages.includes('Recycle Bin') && 
-                <RecycleModal 
-                    display={ pages.includes("Recycle Bin") ? "flex": "none"} 
-                />}
+            {pages.includes('Recycle Bin') && <RecycleModal />}
 
-            {pages.includes('OldResume') &&
-                <OldResumeModal 
-                    display={pages.includes("OldResume") ? "flex" : "none"}
-                />}
+            {pages.includes('OldResume') && <OldResumeModal />}
 
-            {pages.includes('Projects') &&
-                <ProjectsModal 
-                    display={pages.includes("Projects") ? "flex" : "none"}
-                />}
+            {pages.includes('Projects') && <ProjectsModal />}
+
+            {pages.includes('Jam Session') && <JamSessionModal />}
 
             {openMenu && <StartMenu/>}
             <StartBar props={{openMenu, setOpenMenu}}/>

@@ -7,6 +7,7 @@ export function GlobalProvider({children}) {
     const recycleRef = useRef(); 
     const resumeRef = useRef(); 
     const projectsRef = useRef(); 
+    const jamSessionRef = useRef(); 
     
 
     const [pages, setPages] = useState([]);
@@ -20,6 +21,7 @@ export function GlobalProvider({children}) {
                 recycleRef,
                 resumeRef,
                 projectsRef,
+                jamSessionRef,
                 pages, 
                 setPages, 
                 visiblePages, 

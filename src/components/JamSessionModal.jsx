@@ -1,14 +1,12 @@
 import React, { useState, useContext } from "react";
 import GlobalContext from "../GlobalContext";
 import { useDrag } from "@use-gesture/react";
-import Icon from "./Icon";
 
-import folderIcon from '../assets/folder.png'
 import fileIcon from '../assets/file.png'
+import napkin from '../assets/napkin.png'
 
-
-function ProjectsModal() {
-    const {projectsRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
+function JamSessionModal() {
+    const {jamSessionRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
     const [windowPosition, setWindowPosition] = useState({ x: 0, y: 0 });
     const bindWindowPos = useDrag((params) => {
         setWindowPosition({
@@ -21,20 +19,20 @@ function ProjectsModal() {
     };    
 
     const handleClick = () => {
-      setSelected("Projects")
+      setSelected("Jam Session")
     }
 
     const handleClose = () => {
-        setPages(pages.filter(page => page !== 'Projects'))
+        setPages(pages.filter(page => page !== 'Jam Session'))
     }
 
     const handleMinimize = () => {
-        projectsRef.current.style.display = 'none'
+        jamSessionRef.current.style.display = 'none'
         setSelected("")
     }
 
     const handleFullscreen = () => {
-      projectsRef.current.classList.toggle("fullscreen")
+      jamSessionRef.current.classList.toggle("fullscreen")
     }
 
     const handleIconClick = (e, name) => {
@@ -51,18 +49,18 @@ function ProjectsModal() {
         <div 
             onPointerDown={handleClick}
             style={{
-                display: pages.includes("Projects") ? "flex": "none",
+                display: pages.includes("Jam Session") ? "flex": "none",
                 left: windowPosition.x,
                 top: windowPosition.y
             }}
-            ref={projectsRef}
-            className={selected === "Projects" ? "Projects top" : "Projects"}
-            id='resume-modal'
+            ref={jamSessionRef}
+            className={selected === "Jam Session" ? "individual-project top" : "individual-project"}
+            id='jam-session-modal'
         >
                 <div className="modal-header" {...bindWindowPos()} >
                     <div className="header-left">
-                        <img src={folderIcon} alt="" />
-                        <h2>Projects</h2>
+                        <img src={fileIcon} alt="" />
+                        <h2>Jam Session</h2>
                     </div>
                     <div className="header-right">
                         <button onClick={handleMinimize} onPointerDown={(e) => miniDown(e)}>_</button>
@@ -73,16 +71,20 @@ function ProjectsModal() {
                     </div>
                     
                 </div>
-                <div className="window-body">
-                    <Icon 
-                        name="JamSession"
-                        handleClick={(e) => handleIconClick(e, "Jam Session")}
-                        image={fileIcon}
-                        alt="JamSession Project Icon"
-                    />
+                <div className="project-body">
+                    <h1>Jam Session</h1>
+                    <img src={napkin} alt="" className="project-thumbnail"/>
+                    <h2>About This Project</h2>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ipsum atque quia veniam harum quos iure, quod, quaerat ea architecto aspernatur id deleniti. Accusamus aspernatur corrupti aliquid quod obcaecati quia veniam ipsam exercitationem quam omnis iste, quas maxime earum numquam.</p>
+                    
+                    <div className="icons">
+
+                    </div>
+
                 </div>
         </div>
     );
 }
 
-export default ProjectsModal;
+export default JamSessionModal;

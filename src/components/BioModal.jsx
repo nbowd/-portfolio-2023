@@ -82,7 +82,7 @@ function BioModal() {
 
                         </div>
                         <div className="techText">
-                            <p>React/Javascript/Jest/Firebase/HTML/CSS</p>
+                            <p>React/Javascript/Jest/HTML/CSS</p>
                         </div>
                    </div>   
             </div>
