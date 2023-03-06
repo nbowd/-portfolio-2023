@@ -1,10 +1,18 @@
 import './Homepage.css'
 import React, {useState, useRef, useContext} from 'react';
+import GlobalContext from '../GlobalContext';
+
 import StartBar from './StartBar';
 import StartMenu from './StartMenu';
 import BioModal from './BioModal';
 import RecycleModal from './RecycleModal';
-import GlobalContext from '../GlobalContext';
+import OldResume from './OldResume';
+import Projects from './Projects';
+
+import myComputer from '../assets/mycomputer.png';
+import recycleBin from '../assets/recycle.png'
+import projectsFolder from '../assets/folder.png'
+import minesweeperLogo from '../assets/minesweeper.png'
 
 function Homepage() {
     const { pages, setPages, selected, setSelected } = useContext(GlobalContext);
@@ -22,7 +30,7 @@ function Homepage() {
             <div className="homepage-items">
                 <div className="homepage-item" onClick={(e)=>handleClick(e, 'Bio')}>
                     <div className="item-icon">
-                        <img src="src\assets\mycomputer.png" alt="" />
+                        <img src={myComputer} alt="" />
                     </div>
                     <div className="item-title">
                         My Bio
@@ -30,15 +38,15 @@ function Homepage() {
                 </div>
                 <div className="homepage-item" onClick={(e)=>handleClick(e, 'Recycle Bin')}>
                     <div className="item-icon">
-                        <img src="src\assets\recycle.png" alt="" />
+                        <img src={recycleBin} alt="" />
                     </div>
                     <div className="item-title">
                         Recycle Bin
                     </div>
                 </div>
-                <div className="homepage-item">
+                <div className="homepage-item" onClick={(e)=>handleClick(e, 'Projects')}>
                     <div className="item-icon">
-                        <img src="src\assets\folder.png" alt="" />
+                        <img src={projectsFolder} alt="" />
                     </div>
                     <div className="item-title">
                         Projects
@@ -46,7 +54,7 @@ function Homepage() {
                 </div>
                 <div className="homepage-item">
                     <div className="item-icon">
-                        <img src="src\assets\minesweeper.png" id='minesweeper-icon' alt="" />
+                        <img src={minesweeperLogo} id='minesweeper-icon' alt="" />
                     </div>
                     <div className="item-title">
                         Minesweeper
@@ -57,21 +65,23 @@ function Homepage() {
             {pages.includes('Bio') && 
                 <BioModal
                     display={ pages.includes("Bio") ? "flex": "none"}
-                    selected={selected}
-                    setSelected={setSelected}
-                    pages={pages}
-                    setPages={setPages}
-                    handleClick={()=>handleClick("Bio")} 
                 />}
+
             {pages.includes('Recycle Bin') && 
                 <RecycleModal 
                     display={ pages.includes("Recycle Bin") ? "flex": "none"} 
-                    selected={selected}
-                    setSelected={setSelected}
-                    pages={pages}
-                    setPages={setPages}
-                    handleClick={()=>handleClick("Recycle Bin")} 
                 />}
+
+            {pages.includes('OldResume') &&
+                <OldResume 
+                    display={pages.includes("OldResume") ? "flex" : "none"}
+                />}
+
+            {pages.includes('Projects') &&
+                <Projects 
+                    display={pages.includes("Projects") ? "flex" : "none"}
+                />}
+
             {openMenu && <StartMenu/>}
             <StartBar props={{openMenu, setOpenMenu}}/>
         </div>

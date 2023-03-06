@@ -3,11 +3,12 @@ import GlobalContext from "../GlobalContext";
 import { useDrag } from "@use-gesture/react";
 import Icon from "./Icon";
 
-import recycleBin from '../assets/recycle.png'
+import folderIcon from '../assets/folder.png'
 import fileIcon from '../assets/file.png'
 
-function RecycleModal() {
-    const {recycleRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
+
+function Projects() {
+    const {projectsRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
     const [windowPosition, setWindowPosition] = useState({ x: 0, y: 0 });
     const bindWindowPos = useDrag((params) => {
         setWindowPosition({
@@ -20,20 +21,20 @@ function RecycleModal() {
     };    
 
     const handleClick = () => {
-      setSelected("Recycle Bin")
+      setSelected("Projects")
     }
 
     const handleClose = () => {
-        setPages(pages.filter(page => page !== 'Recycle Bin'))
+        setPages(pages.filter(page => page !== 'Projects'))
     }
 
     const handleMinimize = () => {
-        recycleRef.current.style.display = 'none'
+        projectsRef.current.style.display = 'none'
         setSelected("")
     }
 
     const handleFullscreen = () => {
-      recycleRef.current.classList.toggle("fullscreen")
+      projectsRef.current.classList.toggle("fullscreen")
     }
 
     const handleIconClick = (e, name) => {
@@ -50,18 +51,18 @@ function RecycleModal() {
         <div 
             onPointerDown={handleClick}
             style={{
-                display: pages.includes("Recycle Bin") ? "flex": "none",
+                display: pages.includes("Projects") ? "flex": "none",
                 left: windowPosition.x,
                 top: windowPosition.y
             }}
-            ref={recycleRef}
-            className={selected === "Recycle Bin" ? "RecycleBin top" : "RecycleBin"}
-            id='recycle-modal'
+            ref={projectsRef}
+            className={selected === "Projects" ? "Projects top" : "Projects"}
+            id='resume-modal'
         >
                 <div className="modal-header" {...bindWindowPos()} >
                     <div className="header-left">
-                        <img src={recycleBin} alt="" />
-                        <h2>Recycle Bin</h2>
+                        <img src={folderIcon} alt="" />
+                        <h2>Projects</h2>
                     </div>
                     <div className="header-right">
                         <button onClick={handleMinimize} onPointerDown={(e) => miniDown(e)}>_</button>
@@ -74,14 +75,14 @@ function RecycleModal() {
                 </div>
                 <div className="window-body">
                     <Icon 
-                        name="OldResume.jpg"
+                        name="JamSession"
+                        handleClick={(e) => handleIconClick(e, "JamSession")}
                         image={fileIcon}
-                        handleClick={(e) => handleIconClick(e, "OldResume")}
-                        alt="Old Resume Picture"
+                        alt="JamSession Project Icon"
                     />
                 </div>
         </div>
     );
 }
 
-export default RecycleModal;
+export default Projects;

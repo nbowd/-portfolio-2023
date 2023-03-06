@@ -4,7 +4,9 @@ const GlobalContext = createContext();
 
 export function GlobalProvider({children}) {
     const bioRef= useRef();
-    const recycleRef = useRef();
+    const recycleRef = useRef(); 
+    const resumeRef = useRef(); 
+    const projectsRef = useRef(); 
     
 
     const [pages, setPages] = useState([]);
@@ -16,6 +18,8 @@ export function GlobalProvider({children}) {
             value={{
                 bioRef,
                 recycleRef,
+                resumeRef,
+                projectsRef,
                 pages, 
                 setPages, 
                 visiblePages, 

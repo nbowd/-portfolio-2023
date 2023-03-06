@@ -152,7 +152,7 @@ a {
   margin: 1rem 0 0.5rem 0;
 }
 
-.RecycleBin {  
+.RecycleBin, .OldResume, .Projects {  
   touch-action: none;
   overflow-y: none;
   overflow-x: hidden;
@@ -174,7 +174,11 @@ a {
   left: 25%;
 }
 
-.recycle-body {
+.OldResume {
+  height: auto;
+}
+
+.window-body {
   display: flex;
   flex-wrap: wrap;
   color: black;
@@ -210,5 +214,37 @@ a {
   max-width: none;
   height: 100vh;
   width: 100vw;
+}
 
+.icon {
+  color: inherit;
+  height: fit-content;
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80px;
+}
+.icon p {
+  margin: 0;
+}
+.icon img {
+  padding-bottom: 0.25rem;
+  width: 70%;
+}
+
+.resume-body img{
+  
+  width: fit-content;
+  max-width: 100%;
+}
+
+.project-body {
+  overflow-y: auto;
+  height: 90%;
+  max-width: 1200px;
+  padding: 1rem;
+  padding-bottom: 0;
+  margin: 0 auto;
 }
