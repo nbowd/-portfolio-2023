@@ -1,9 +1,13 @@
 import React, { useState, useContext } from "react";
-import GlobalContext from "../GlobalContext";
 import { useDrag } from "@use-gesture/react";
 
+import GlobalContext from "../GlobalContext";
+import Icon from "./Icon";
+
 import fileIcon from '../assets/file.png'
-import napkin from '../assets/napkin.png'
+import githubLogo from '../assets/icons8-github-50.png'
+import externalLink from '../assets/icons8-external-link-50.png'
+import JamSessionThumb from '../assets/JamSessionThumb.png'
 
 function JamSessionModal() {
     const {jamSessionRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
@@ -63,13 +67,18 @@ function JamSessionModal() {
                 </div>
                 <div className="project-body">
                     <h1>Jam Session</h1>
-                    <img src={napkin} alt="" className="project-thumbnail"/>
+                    <img src={JamSessionThumb} alt="" className="project-thumbnail"/>
                     <h2>About This Project</h2>
 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ipsum atque quia veniam harum quos iure, quod, quaerat ea architecto aspernatur id deleniti. Accusamus aspernatur corrupti aliquid quod obcaecati quia veniam ipsam exercitationem quam omnis iste, quas maxime earum numquam.</p>
+                    <p>Jam Session is a web application for finding musicians and Artists via social media-like functionality. The goal is to create an app that makes finding musicians, groups, and gigs convenient while providing some interactivity and community. Built with React using Typescript, Python, and Django.</p>
                     
-                    <div className="icons">
-
+                    <div className="logos">
+                        <a href="">
+                            <Icon image={githubLogo}/>
+                        </a>
+                        <a href="">
+                            <Icon image={externalLink}/>
+                        </a>
                     </div>
 
                 </div>

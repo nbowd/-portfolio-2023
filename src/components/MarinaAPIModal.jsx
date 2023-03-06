@@ -3,7 +3,7 @@ import GlobalContext from "../GlobalContext";
 import { useDrag } from "@use-gesture/react";
 
 import fileIcon from '../assets/file.png'
-import napkin from '../assets/napkin.png'
+import cloudAPIThumb from '../assets/cloudAPIThumb.jpg'
 
 function MarinaAPIModal() {
     const {marinaAPIRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
@@ -63,7 +63,7 @@ function MarinaAPIModal() {
                 </div>
                 <div className="project-body">
                     <h1>Marina API</h1>
-                    <img src={napkin} alt="" className="project-thumbnail"/>
+                    <img src={cloudAPIThumb} alt="" className="project-thumbnail"/>
                     <h2>About This Project</h2>
 
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ipsum atque quia veniam harum quos iure, quod, quaerat ea architecto aspernatur id deleniti. Accusamus aspernatur corrupti aliquid quod obcaecati quia veniam ipsam exercitationem quam omnis iste, quas maxime earum numquam.</p>

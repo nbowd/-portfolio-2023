@@ -2,7 +2,16 @@ import "./BioModal.css";
 import React, { useState, useContext } from "react";
 import GlobalContext from "../GlobalContext";
 import { useDrag } from "@use-gesture/react";
+
+import Icon from "./Icon";
+
 import myComputer from "../assets/mycomputer.png"
+import me from "../assets/me.jpg"
+import javascript from "../assets/javascript.png"
+import react from "../assets/react.svg"
+import jest from "../assets/jest.svg"
+import node from "../assets/node.png"
+import typescript from "../assets/typescript.png"
 
 function BioModal() {
     const {bioRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
@@ -62,6 +71,7 @@ function BioModal() {
                         
                     </div>
                    <div className="bio-body">
+                        <img src={me} alt="My Face, you're not missing out on anything" className="bio-picture" />
                         <h1>Nick Bowden</h1>
                         <h2>Software Engineer</h2>
 
@@ -71,7 +81,7 @@ function BioModal() {
                         </b>
                         </h2>
                         <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio et totam laborum reiciendis iste voluptas enim, assumenda dignissimos! Quam debitis placeat reiciendis aperiam atque ipsa sint officiis provident inventore nesciunt obcaecati, minima fugit odit labore nisi facilis asperiores! Quidem, reiciendis?
+                            I'm Nick, I'm a software engineer. I make full-stack web applications that are responsive and easy to use. I enjoy keeping up with the latest tech trends and use React to build the majority of my sites. When I'm not coding, I'm reading or playing video games.
                         </p>
                         <h2 className="bio-title">
                         <b>
@@ -80,9 +90,30 @@ function BioModal() {
                         </h2>
                         <div className="logos">
 
+                            <Icon 
+                                image={react}
+                                alt="React logo"
+                            />
+                                <Icon 
+                                    image={typescript}
+                                    alt="TypeScript logo"
+                                />
+                            <Icon 
+                                image={javascript}
+                                alt="JavaScript logo"
+                            />
+                            <Icon 
+                                image={node}
+                                alt="Node logo"
+                            />
+                            <Icon 
+                                image={jest}
+                                alt="Jest logo"
+                            />
+
                         </div>
                         <div className="techText">
-                            <p>React/Javascript/Jest/HTML/CSS</p>
+                            <p>React/TypeScript/JavaScript/Node/Jest</p>
                         </div>
                    </div>   
             </div>
