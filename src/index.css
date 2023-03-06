@@ -5,6 +5,25 @@
   --hoverBlue: #00007c;
   --app-height: 100vh;
 }
+* {
+  box-sizing: border-box;
+  scrollbar-color: var(--primaryBg) lightgray;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+  height: 0;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primaryBg);
+  border: 2px outset lightgray;
+}
+::-webkit-scrollbar-track {
+  background: lightgray;
+}
+p {
+  padding: 0;
+}
 
 html {
   height: 100%;
@@ -31,30 +50,52 @@ a {
   color: inherit;
 }
 
-body.active-modal {
-  overflow-y: hidden;
+
+.RecycleBin {  
+  overflow-y: auto;
+  height: fit-content;
+  height: 400px;
+  max-height: 400px;
+  width: 40vw;
+  min-width: 250px;
+  max-width: 400px;
+  top: 25%;
+  left: 25%;
+  touch-action: none;
+  overflow-x: hidden;
+  position: absolute;
+  /* line-height: 1.4; */
+  background: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1px;
+  background-color: var(--primaryBg);
+  border-top: 2px outset white;
+  border-right: 2px outset black;
+  border-bottom: 2px outset black;
+  border-left: 2px outset white;
 }
 
-.Bio, .RecycleBin {
+.Bio {
   padding: 0;
   margin: 0;
   touch-action: none;
   overflow-y: auto;
   overflow-x: hidden;
-  position: absolute;
-  line-height: 1.4;
-  background: #f1f1f1;
   display: flex;
+  align-items: center;
   flex-direction: column;
-  border-radius: 1px;
-  width: 19rem;
-  height: 31rem;
   background-color: var(--primaryBg);
-  border-top: 2px solid white;
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
-  border-left: 2px solid white;
-
+  height: auto;
+  max-height: 500px;
+  width: auto;
+  max-width: 300px;
+  position: absolute;
+  border: 2px outset black;
+  border-top-color: whitesmoke;
+  border-left-color: whitesmoke;
+  top: 25%;
+  left: 25%;
 }
 
 .modal-header {
@@ -67,11 +108,8 @@ body.active-modal {
   align-items: center;
   font-size: .75rem;
   height: 1.5rem;
-}
-
-.bio-body, .recycle-body {
-  padding: 14px 28px;
-  height: 100%;
+  width: 100%;
+  max-width: 100%;
 }
 
 .header-left {
@@ -92,6 +130,56 @@ body.active-modal {
   margin:0;
   margin-right: .2rem;
 }
+
+/* .bio-body, .recycle-body {
+  height: 100%;
+} */
+
+.bio-body {
+  text-align: center;
+  max-width: 800px;
+  min-width: 250px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.bio-body p {
+  padding: 1rem;
+}
+
+.bio-body h1 {
+  padding-bottom: 0.5rem;
+  font-size: 30px;
+}
+
+.selfie {
+  height: 200px;
+  max-width: 100%;
+  border-radius: 350%;
+}
+.logos {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  height: fit-content;
+}
+.techLogo {
+  padding: 0;
+  height: 50px;
+}
+.bio-title {
+  margin: 1rem 0 0.5rem 0;
+}
+.modal-screen {
+  background-color: white;
+  height: 90%;
+
+  margin: 2rem 1rem 1rem 1rem;
+}
+
 .top {
   position: absolute;
   z-index: 100;

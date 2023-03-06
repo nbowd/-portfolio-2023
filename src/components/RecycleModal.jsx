@@ -67,7 +67,9 @@ function RecycleModal({display}) {
                         
                     </div>
                    <div className="recycle-body" onPointerDown={handleBodyClick}>
-                        <p>Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal </p>
+                        <div className="modal-screen">
+                            <p>Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal </p>
+                        </div>
                    </div>   
             </div>
             

@@ -2,14 +2,21 @@ import "./BioModal.css";
 import React, { useState, useContext } from "react";
 import useDragger from "../hooks/useDragger";
 import GlobalContext from "../GlobalContext";
+import { useDrag } from "@use-gesture/react";
 
 function BioModal() {
     const {bioRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
-    useDragger('bio-modal')
+    const [windowPosition, setWindowPosition] = useState({ x: 0, y: 0 });
+    const bindWindowPos = useDrag((params) => {
+        setWindowPosition({
+          x: params.offset[0],
+          y: params.offset[1],
+        });
+      });
     
-    const handleBodyClick = (e) => {
-      e.preventDefault();
-    }
+    // const handleBodyClick = (e) => {
+    //   e.preventDefault();
+    // }
     
     const handleClick = () => {
       setSelected("Bio")
@@ -27,18 +34,24 @@ function BioModal() {
     const handleFullscreen = () => {
       bioRef.current.classList.toggle("fullscreen")
     }
+
+    const miniDown = (e) => {
+        e.stopPropagation();
+      };
+
     return (
-        <>
             <div 
                 onPointerDown={handleClick}
                 style={{
-                    display: pages.includes("Bio") ? "flex": "none"
+                    display: pages.includes("Bio") ? "flex": "none",
+                    left: windowPosition.x,
+                    top: windowPosition.y
                 }}
                 ref={bioRef}
                 className={selected === "Bio" ? "Bio top" : "Bio"}
                 id='bio-modal'
             >
-                    <div className="modal-header"  >
+                    <div className="modal-header" {...bindWindowPos()} >
                         <div className="header-left">
                             <img src="src\assets\mycomputer.png" alt="" />
                             <h2>My Bio</h2>
@@ -52,12 +65,31 @@ function BioModal() {
                         </div>
                         
                     </div>
-                   <div className="modal-body" onPointerDown={handleBodyClick}>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia architecto, laborum nobis cum officiis, nostrum minus quos illum odit magnam consequatur numquam natus rerum deleniti, cupiditate dignissimos consequuntur similique fugiat cumque voluptatum repellendus rem? Natus, molestias ex? Temporibus asperiores perspiciatis numquam dolorem ea. Tempore sunt cupiditate magni reprehenderit culpa hic!</p>
+                   <div className="bio-body">
+                        <h1>Nick Bowden</h1>
+                        <h2>Software Engineer</h2>
+
+                        <h2 className="bio-title">
+                        <b>
+                            <u>About Me</u>
+                        </b>
+                        </h2>
+                        <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio et totam laborum reiciendis iste voluptas enim, assumenda dignissimos! Quam debitis placeat reiciendis aperiam atque ipsa sint officiis provident inventore nesciunt obcaecati, minima fugit odit labore nisi facilis asperiores! Quidem, reiciendis?
+                        </p>
+                        <h2 className="bio-title">
+                        <b>
+                            <u>Skills</u>
+                        </b>
+                        </h2>
+                        <div className="logos">
+
+                        </div>
+                        <div className="techText">
+                            <p>React/Javascript/Jest/Firebase/HTML/CSS</p>
+                        </div>
                    </div>   
             </div>
-            
-        </>
     );
 }
 
