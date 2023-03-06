@@ -3,7 +3,7 @@ import React, {useState, useEffect, useContext, useRef, createRef} from 'react';
 import GlobalContext from '../GlobalContext';
 
 function StartBar({props}) {
-    const {bioRef, recycleRef, resumeRef, projectsRef, jamSessionRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
+    const {bioRef, recycleRef, resumeRef, projectsRef, jamSessionRef, marinaAPIRef, booknookRef, crowdFlowref, pages, setPages, selected, setSelected } = useContext(GlobalContext);
 
     const allItemRefs = useRef([]);
 
@@ -51,6 +51,24 @@ function StartBar({props}) {
         jamSessionRef.current.style.display = 
           jamSessionRef.current.style.display === "flex" &&
           jamSessionRef.current.currentList.contains("top")
+            ? "none"
+            : "flex";
+      } else if (page === "Marina API") {
+        marinaAPIRef.current.style.display = 
+          marinaAPIRef.current.style.display === "flex" &&
+          marinaAPIRef.current.currentList.contains("top")
+            ? "none"
+            : "flex";
+      } else if (page === "Booknook") {
+        booknookRef.current.style.display = 
+          booknookRef.current.style.display === "flex" &&
+          booknookRef.current.currentList.contains("top")
+            ? "none"
+            : "flex";
+      } else if (page === "CrowdFlow") {
+        crowdFlowref.current.style.display = 
+          crowdFlowref.current.style.display === "flex" &&
+          crowdFlowref.current.currentList.contains("top")
             ? "none"
             : "flex";
       }

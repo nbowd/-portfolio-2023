@@ -8,6 +8,9 @@ export function GlobalProvider({children}) {
     const resumeRef = useRef(); 
     const projectsRef = useRef(); 
     const jamSessionRef = useRef(); 
+    const marinaAPIRef = useRef(); 
+    const booknookRef = useRef(); 
+    const crowdFlowRef = useRef(); 
     
 
     const [pages, setPages] = useState([]);
@@ -22,6 +25,9 @@ export function GlobalProvider({children}) {
                 resumeRef,
                 projectsRef,
                 jamSessionRef,
+                marinaAPIRef,
+                booknookRef,
+                crowdFlowRef,
                 pages, 
                 setPages, 
                 visiblePages, 

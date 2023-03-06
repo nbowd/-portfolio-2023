@@ -9,6 +9,9 @@ import RecycleModal from './RecycleModal';
 import OldResumeModal from './OldResumeModal';
 import ProjectsModal from './ProjectsModal';
 import JamSessionModal from './JamSessionModal';
+import MarinaAPIModal from './MarinaAPIModal';
+import BooknookModal from './booknookModal';
+import CrowdFlowModal from './CrowdFlowModal';
 
 import myComputer from '../assets/mycomputer.png';
 import recycleBin from '../assets/recycle.png'
@@ -72,6 +75,12 @@ function Homepage() {
             {pages.includes('Projects') && <ProjectsModal />}
 
             {pages.includes('Jam Session') && <JamSessionModal />}
+            
+            {pages.includes('Marina API') && <MarinaAPIModal />}
+            
+            {pages.includes('Booknook') && <BooknookModal />}
+            
+            {pages.includes('CrowdFlow') && <CrowdFlowModal />}
 
             {openMenu && <StartMenu/>}
             <StartBar props={{openMenu, setOpenMenu}}/>

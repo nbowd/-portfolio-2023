@@ -80,6 +80,24 @@ function ProjectsModal() {
                         image={fileIcon}
                         alt="JamSession Project Icon"
                     />
+                    <Icon 
+                        name="MarinaAPI"
+                        handleClick={(e) => handleIconClick(e, "Marina API")}
+                        image={fileIcon}
+                        alt="Marina API Project Icon"
+                    />
+                    <Icon 
+                        name="Booknook"
+                        handleClick={(e) => handleIconClick(e, "Booknook")}
+                        image={fileIcon}
+                        alt="Booknook Project Icon"
+                    />
+                    <Icon 
+                        name="CrowdFlow"
+                        handleClick={(e) => handleIconClick(e, "CrowdFlow")}
+                        image={fileIcon}
+                        alt="CrowdFlow Project Icon"
+                    />
                 </div>
         </div>
     );
