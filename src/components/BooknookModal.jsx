@@ -1,8 +1,12 @@
 import React, { useState, useContext } from "react";
-import GlobalContext from "../GlobalContext";
 import { useDrag } from "@use-gesture/react";
 
+import GlobalContext from "../GlobalContext";
+import Icon from "./Icon";
+
 import fileIcon from '../assets/file.png'
+import githubLogo from '../assets/icons8-github-50.png'
+import externalLinkLogo from '../assets/icons8-external-link-24.png'
 import BooknookThumb from '../assets/BooknookThumb.png'
 
 function BooknookModal() {
@@ -66,10 +70,14 @@ function BooknookModal() {
                     <img src={BooknookThumb} alt="" className="project-thumbnail"/>
                     <h2>About This Project</h2>
 
-                    <p>Lorem ipsums dolor sit amet consectetur adipisicing elit. Quidem ipsum atque quia veniam harum quos iure, quod, quaerat ea architecto aspernatur id deleniti. Accusamus aspernatur corrupti aliquid quod obcaecati quia veniam ipsam exercitationem quam omnis iste, quas maxime earum numquam.</p>
-                    
-                    <div className="icons">
-
+                    <p>Booknook is a web application to discover unique book recommendations based on the subject. This project was built as part of an Agile team to develop using micro-services. When a subject is selected, a call is made to the OpenLibraryAPI to retrieve randomized results. Users can get more information about each book which includes a description, a vendor link, and save options if logged in. Users can create an account and log in, to save books that they find for later.</p>
+                    <div className="logos">
+                        <a href="https://github.com/nbowd/booknook">
+                            <Icon image={githubLogo} alt="GitHub Logo"/>
+                        </a>
+                        <a href="https://try-booknook.herokuapp.com/">
+                            <Icon image={externalLinkLogo} alt="External Link Logo" />
+                        </a>
                     </div>
 
                 </div>

@@ -158,7 +158,7 @@ a {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: .75rem;
   height: fit-content;
 }
 .techLogo {
@@ -260,7 +260,9 @@ a {
   margin: 0 auto;
   text-align: center;
 }
-
+.project-body .logos {
+  padding-bottom: 0;
+}
 .individual-project {
   overflow-y: hidden;
   overflow-x: hidden;

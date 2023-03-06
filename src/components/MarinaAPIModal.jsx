@@ -1,8 +1,11 @@
 import React, { useState, useContext } from "react";
-import GlobalContext from "../GlobalContext";
 import { useDrag } from "@use-gesture/react";
 
+import GlobalContext from "../GlobalContext";
+import Icon from "./Icon";
+
 import fileIcon from '../assets/file.png'
+import githubLogo from '../assets/icons8-github-50.png'
 import cloudAPIThumb from '../assets/cloudAPIThumb.jpg'
 
 function MarinaAPIModal() {
@@ -66,10 +69,12 @@ function MarinaAPIModal() {
                     <img src={cloudAPIThumb} alt="" className="project-thumbnail"/>
                     <h2>About This Project</h2>
 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ipsum atque quia veniam harum quos iure, quod, quaerat ea architecto aspernatur id deleniti. Accusamus aspernatur corrupti aliquid quod obcaecati quia veniam ipsam exercitationem quam omnis iste, quas maxime earum numquam.</p>
+                    <p>This is a cloud-based API to service a marina. Users can register new boats after they authorize their accounts through Google. Users can also create representations of loads those boats will carry. Each load can only go on one boat, but a boat will be able to carry multiple loads. The API supports full CRUD operations for both the boat and load entities, as well as endpoints to update the relationships between a load and a boat.</p>
                     
-                    <div className="icons">
-
+                    <div className="logos">
+                        <a href="https://github.com/nbowd/marina_api">
+                            <Icon image={githubLogo} alt="GitHub Logo"/>
+                        </a>
                     </div>
 
                 </div>

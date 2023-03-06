@@ -6,7 +6,7 @@ import Icon from "./Icon";
 
 import fileIcon from '../assets/file.png'
 import githubLogo from '../assets/icons8-github-50.png'
-import externalLink from '../assets/icons8-external-link-50.png'
+import youtubeLogo from '../assets/icons8-youtube-48.png'
 import JamSessionThumb from '../assets/JamSessionThumb.png'
 
 function JamSessionModal() {
@@ -73,11 +73,11 @@ function JamSessionModal() {
                     <p>Jam Session is a web application for finding musicians and Artists via social media-like functionality. The goal is to create an app that makes finding musicians, groups, and gigs convenient while providing some interactivity and community. Built with React using Typescript, Python, and Django.</p>
                     
                     <div className="logos">
-                        <a href="">
+                        <a href="https://github.com/iDoc1/Jam-Session">
                             <Icon image={githubLogo}/>
                         </a>
-                        <a href="">
-                            <Icon image={externalLink}/>
+                        <a href="https://www.youtube.com/watch?v=eTqZM5ntU-M">
+                            <Icon image={youtubeLogo}/>
                         </a>
                     </div>
 

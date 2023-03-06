@@ -1,8 +1,11 @@
 import React, { useState, useContext } from "react";
-import GlobalContext from "../GlobalContext";
 import { useDrag } from "@use-gesture/react";
 
+import GlobalContext from "../GlobalContext";
+import Icon from "./Icon";
+
 import fileIcon from '../assets/file.png'
+import githubLogo from '../assets/icons8-github-50.png'
 import CrowdFlowThumb from '../assets/CrowdFlowThumb.png'
 
 function CrowdFlowModal() {
@@ -66,10 +69,12 @@ function CrowdFlowModal() {
                     <img src={CrowdFlowThumb} alt="" className="project-thumbnail"/>
                     <h2>About This Project</h2>
 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ipsum atque quia veniam harum quos iure, quod, quaerat ea architecto aspernatur id deleniti. Accusamus aspernatur corrupti aliquid quod obcaecati quia veniam ipsam exercitationem quam omnis iste, quas maxime earum numquam.</p>
+                    <p>This is an admin interface for a ticketing system. This was designed with a partner for my Introduction to Databases class at OSU. We worked together to craft a proposal for a mock product that would service a mid-size venue (~1500 seats) to manage all their data needs. This was accomplished by implementing a relational database after extensive group discussion and numerous peer reviews. This is an SQL MariaDB with multiple entities featuring various kinds of relationships.</p>
                     
-                    <div className="icons">
-
+                    <div className="logos">
+                        <a href="https://github.com/nbowd/CrowdFlow">
+                            <Icon image={githubLogo} alt="GitHub logo" />
+                        </a>
                     </div>
 
                 </div>
