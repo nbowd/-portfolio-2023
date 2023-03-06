@@ -1,8 +1,8 @@
 import "./BioModal.css";
 import React, { useState, useContext } from "react";
-import useDragger from "../hooks/useDragger";
 import GlobalContext from "../GlobalContext";
 import { useDrag } from "@use-gesture/react";
+import myComputer from "../assets/mycomputer.png"
 
 function BioModal() {
     const {bioRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
@@ -13,10 +13,6 @@ function BioModal() {
           y: params.offset[1],
         });
       });
-    
-    // const handleBodyClick = (e) => {
-    //   e.preventDefault();
-    // }
     
     const handleClick = () => {
       setSelected("Bio")
@@ -53,7 +49,7 @@ function BioModal() {
             >
                     <div className="modal-header" {...bindWindowPos()} >
                         <div className="header-left">
-                            <img src="src\assets\mycomputer.png" alt="" />
+                            <img src={myComputer} alt="" />
                             <h2>My Bio</h2>
                         </div>
                         <div className="header-right">

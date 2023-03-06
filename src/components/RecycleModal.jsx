@@ -3,6 +3,8 @@ import useDragger from "../hooks/useDragger";
 import GlobalContext from "../GlobalContext";
 import { useDrag } from "@use-gesture/react";
 
+import recycleBin from '../assets/recycle.png'
+
 
 function RecycleModal({display}) {
     const {recycleRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
@@ -54,7 +56,7 @@ function RecycleModal({display}) {
             >
                     <div className="modal-header" {...bindWindowPos()}  >
                         <div className="header-left">
-                            <img src="src\assets\recycle.png" alt="" />
+                            <img src={recycleBin} alt="" />
                             <h2>Recycle Bin</h2>
                         </div>
                         <div className="header-right">
@@ -67,10 +69,8 @@ function RecycleModal({display}) {
                         
                     </div>
                    <div className="recycle-body" onPointerDown={handleBodyClick}>
-                        <div className="modal-screen">
-                            <p>Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal </p>
-                        </div>
-                   </div>   
+                        <p>Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal Recycle Modal </p>
+                   </div>
             </div>
             
         </>
