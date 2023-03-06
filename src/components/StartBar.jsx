@@ -3,7 +3,7 @@ import React, {useState, useEffect, useContext, useRef, createRef} from 'react';
 import GlobalContext from '../GlobalContext';
 
 function StartBar({props}) {
-    const {bioRef, recycleRef, resumeRef, projectsRef, jamSessionRef, marinaAPIRef, booknookRef, crowdFlowref, pages, setPages, selected, setSelected } = useContext(GlobalContext);
+    const {bioRef, recycleRef, resumeRef, projectsRef, jamSessionRef, marinaAPIRef, booknookRef, crowdFlowRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
 
     const allItemRefs = useRef([]);
 
@@ -30,45 +30,46 @@ function StartBar({props}) {
             ? "none"
             : "flex";
       } else if (page === "Recycle Bin") {
+        console.log('rec')
         recycleRef.current.style.display = 
           recycleRef.current.style.display === "flex" &&
-          recycleRef.current.currentList.contains("top")
+          recycleRef.current.classList.contains("top")
             ? "none"
             : "flex";
       } else if (page === "OldResume") {
         resumeRef.current.style.display = 
           resumeRef.current.style.display === "flex" &&
-          resumeRef.current.currentList.contains("top")
+          resumeRef.current.classList.contains("top")
             ? "none"
             : "flex";
       } else if (page === "Projects") {
         projectsRef.current.style.display = 
           projectsRef.current.style.display === "flex" &&
-          projectsRef.current.currentList.contains("top")
+          projectsRef.current.classList.contains("top")
             ? "none"
             : "flex";
       } else if (page === "Jam Session") {
         jamSessionRef.current.style.display = 
           jamSessionRef.current.style.display === "flex" &&
-          jamSessionRef.current.currentList.contains("top")
+          jamSessionRef.current.classList.contains("top")
             ? "none"
             : "flex";
       } else if (page === "Marina API") {
         marinaAPIRef.current.style.display = 
           marinaAPIRef.current.style.display === "flex" &&
-          marinaAPIRef.current.currentList.contains("top")
+          marinaAPIRef.current.classList.contains("top")
             ? "none"
             : "flex";
       } else if (page === "Booknook") {
         booknookRef.current.style.display = 
           booknookRef.current.style.display === "flex" &&
-          booknookRef.current.currentList.contains("top")
+          booknookRef.current.classList.contains("top")
             ? "none"
             : "flex";
       } else if (page === "CrowdFlow") {
-        crowdFlowref.current.style.display = 
-          crowdFlowref.current.style.display === "flex" &&
-          crowdFlowref.current.currentList.contains("top")
+        crowdFlowRef.current.style.display = 
+          crowdFlowRef.current.style.display === "flex" &&
+          crowdFlowRef.current.classList.contains("top")
             ? "none"
             : "flex";
       }
