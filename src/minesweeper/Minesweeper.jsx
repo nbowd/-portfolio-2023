@@ -3,7 +3,7 @@ import React, {useState, useRef, useEffect} from 'react';
 
 function Minesweeper(props) {
     const BOARD_SIZE = 10;
-    const NUMBER_OF_MINES = 10;
+    const NUMBER_OF_MINES = 3;
     const TILE_STATUSES = {
         HIDDEN: 'hidden',
         MINE: 'mine',
@@ -12,6 +12,7 @@ function Minesweeper(props) {
     }
     const [board, setBoard] = useState([]);
     const [minesLeft, setMinesLeft] = useState(NUMBER_OF_MINES);
+    const [gameOverText, setGameOverText] = useState('');
     const boardRef = useRef();
 
     function createBoard(boardSize, numberOfMines) {
@@ -44,6 +45,7 @@ function Minesweeper(props) {
                         className={`${tile.tileStatus}`} 
                         onClick={() => {
                             revealTile(tile)
+                            checkGameEnd()
                         }} 
                         onContextMenu={e => {
                             e.preventDefault(); 
@@ -144,6 +146,59 @@ function Minesweeper(props) {
 
         return tiles
     }
+
+    function checkGameEnd() {
+        const win = checkWin();
+        const lose = checkLose();
+
+        if (win || lose) {
+            boardRef.current.addEventListener('click', stopProp, { capture: true })
+            boardRef.current.addEventListener('contextmenu', stopProp, { capture: true })
+        }
+
+        if (win) {
+            setGameOverText('You Win!')
+        }
+
+        if (lose) {
+            setGameOverText('You Lose')
+            let newBoard = [...board];
+            newBoard.forEach(row => {
+                row.forEach(tile => {
+                    if (tile.tileStatus === TILE_STATUSES.MARKED && tile.mine) {
+                        markTile(tile)
+                    }
+                    if (tile.mine) {
+                        revealTile(tile)
+                    }
+                })
+            })
+        }
+    }
+
+    function stopProp(e) {
+        e.stopImmediatePropagation()
+    }
+
+    function checkWin() {
+        return board.every(row => {
+            return row.every(tile => {
+                return (
+                    tile.tileStatus === TILE_STATUSES.NUMBER || 
+                    (tile.mine && 
+                        (tile.tileStatus === TILE_STATUSES.HIDDEN ||
+                            tile.tileStatus === TILE_STATUSES.MARKED)))
+            })
+        })
+    }
+
+    function checkLose() {
+        return board.some(row => {
+            return row.some(tile => {
+                return tile.tileStatus === TILE_STATUSES.MINE
+            })
+        })
+    }
     useEffect(() => {
         createBoard(BOARD_SIZE, NUMBER_OF_MINES);
         
@@ -151,15 +206,15 @@ function Minesweeper(props) {
         boardElement.style.setProperty("--size", BOARD_SIZE);
     }, [])
     return (
-        <>
+        <div className='minesweeper'>
             <h3 className="title">Minesweeper</h3>
             <div className="subtext">
-            Mines Left: {minesLeft}
+            { gameOverText? gameOverText: `Mines Left: ${minesLeft}`}
             </div>
             <div className="board" ref={boardRef}>
                 {board.length !== 0 && renderBoard()}
             </div>
-        </>
+        </div>
     );
 }
 
