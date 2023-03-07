@@ -121,7 +121,7 @@ function Minesweeper(props) {
         const mines = adjacentTiles.filter(t => t.mine)
 
         if (mines.length === 0) {
-
+            adjacentTiles.forEach(adjTile => revealTile(adjTile))
         } else {
             newBoard[tile.x][tile.y].adjacentMines = mines.length
         }
