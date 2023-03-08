@@ -1,9 +1,12 @@
 import './Minesweeper.css'
 import React, {useState, useRef, useEffect} from 'react';
 
+import flag from '../assets/flag.png'
+import bomb from '../assets/bomb.png'
+
 function Minesweeper(props) {
     const BOARD_SIZE = 10;
-    const NUMBER_OF_MINES = 3;
+    const NUMBER_OF_MINES = 10;
     const TILE_STATUSES = {
         HIDDEN: 'hidden',
         MINE: 'mine',
@@ -51,7 +54,10 @@ function Minesweeper(props) {
                             e.preventDefault(); 
                             markTile(tile)
                         }}
+                        style={{color: getNumberColor(tile.adjacentMines)}}
                     >
+                        {tile.tileStatus === TILE_STATUSES.MARKED  && <img src={flag} alt='flag icon' className='flag-icon'></img>}
+                        {tile.tileStatus === TILE_STATUSES.MINE  && <img src={bomb} alt='bomb icon' className='bomb-icon'></img>}
                         {tile.adjacentMines > 0 ? tile.adjacentMines: null}
                     </div>
                 ))}
@@ -198,6 +204,41 @@ function Minesweeper(props) {
                 return tile.tileStatus === TILE_STATUSES.MINE
             })
         })
+    }
+
+    function getNumberColor(number) {
+        let color = ''
+        switch (number) {
+            case 1:
+                color = '#0001fb'
+                break;
+            case 2:
+                color = '#017e00'
+                break
+            case 3:
+                color = '#fe0100'
+                break
+            case 4:
+                color = '#010000'
+                break
+            case 5:
+                color = '#800002'
+                break
+            case 6:
+                color = '#008080'
+                break
+            case 7:
+                color = '#000000'
+                break
+            case 8:
+                color = '#808080'
+                break
+            default:
+                color = '#'
+                break;
+        }
+        // console.log(number)
+        return color
     }
     useEffect(() => {
         createBoard(BOARD_SIZE, NUMBER_OF_MINES);

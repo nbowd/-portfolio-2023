@@ -11,6 +11,7 @@ export function GlobalProvider({children}) {
     const marinaAPIRef = useRef(); 
     const booknookRef = useRef(); 
     const crowdFlowRef = useRef(); 
+    const minesweeperRef = useRef(); 
     
 
     const [pages, setPages] = useState([]);
@@ -28,6 +29,7 @@ export function GlobalProvider({children}) {
                 marinaAPIRef,
                 booknookRef,
                 crowdFlowRef,
+                minesweeperRef,
                 pages, 
                 setPages, 
                 visiblePages, 

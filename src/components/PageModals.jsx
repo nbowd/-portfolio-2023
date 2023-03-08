@@ -9,6 +9,7 @@ import JamSessionModal from './JamSessionModal';
 import MarinaAPIModal from './MarinaAPIModal';
 import BooknookModal from './booknookModal';
 import CrowdFlowModal from './CrowdFlowModal';
+import MinesweeperModal from './MinesweeperModal';
 
 function PageModals() {
     const { pages } = useContext(GlobalContext);
@@ -23,6 +24,7 @@ function PageModals() {
             {pages.includes('Marina API') && <MarinaAPIModal />}
             {pages.includes('Booknook') && <BooknookModal />}
             {pages.includes('CrowdFlow') && <CrowdFlowModal />}  
+            {pages.includes('Minesweeper') && <MinesweeperModal />}  
         </>
     );
 }

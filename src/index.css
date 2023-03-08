@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "PressStart2P";
+  src: local("PressStart2P"),
+    url("./fonts/PressStart2P-Regular.ttf") format("truetype");
+  font-weight: bold;
+}
+
 :root {
   --desktopBg: #018281;
   --primaryBg: #c0c0c0;
@@ -169,7 +176,7 @@ a {
   margin: 1rem 0 0.5rem 0;
 }
 
-.RecycleBin, .OldResume, .Projects {  
+.RecycleBin, .OldResume, .Projects, .Minesweeper {  
   touch-action: none;
   overflow-y: none;
   overflow-x: hidden;
@@ -191,8 +198,9 @@ a {
   left: 25%;
 }
 
-.OldResume {
+.OldResume, .Minesweeper {
   height: auto;
+  width: auto;
 }
 
 .window-body {

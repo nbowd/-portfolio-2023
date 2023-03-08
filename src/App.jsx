@@ -7,8 +7,8 @@ import Minesweeper from './minesweeper/Minesweeper'
 function App() {
   return (
     <GlobalProvider>
-      {/* <Homepage/> */}
-      <Minesweeper/>
+      <Homepage/>
+      {/* <Minesweeper/> */}
     </GlobalProvider>
   )
 }

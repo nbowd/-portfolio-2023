@@ -41,7 +41,7 @@ function HomepageIcons() {
                     alt="Projects Icon"
                 />
             </div>
-            <div className="homepage-item">
+            <div className="homepage-item" onClick={(e)=>handleClick(e, 'Minesweeper')}>
                 <Icon
                     name="Minesweeper"
                     image={minesweeperLogo}

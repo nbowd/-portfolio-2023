@@ -3,7 +3,7 @@ import React, {useState, useEffect, useContext, useRef, createRef} from 'react';
 import GlobalContext from '../GlobalContext';
 
 function StartBar({props}) {
-    const {bioRef, recycleRef, resumeRef, projectsRef, jamSessionRef, marinaAPIRef, booknookRef, crowdFlowRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
+    const {bioRef, recycleRef, resumeRef, projectsRef, jamSessionRef, marinaAPIRef, booknookRef, crowdFlowRef, minesweeperRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
 
     const allItemRefs = useRef([]);
 
@@ -70,6 +70,12 @@ function StartBar({props}) {
         crowdFlowRef.current.style.display = 
           crowdFlowRef.current.style.display === "flex" &&
           crowdFlowRef.current.classList.contains("top")
+            ? "none"
+            : "flex";
+      } else if (page === "Minesweeper") {
+        minesweeperRef.current.style.display = 
+          minesweeperRef.current.style.display === "flex" &&
+          minesweeperRef.current.classList.contains("top")
             ? "none"
             : "flex";
       }
