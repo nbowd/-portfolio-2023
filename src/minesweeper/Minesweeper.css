@@ -114,8 +114,11 @@
     border: 1px solid #939393;
 
 }
+.flag-icon {
+  height: 15px;
+}
 
-.flag-icon, .bomb-icon {
+.bomb-icon {
   height: 20px;
 }
 
