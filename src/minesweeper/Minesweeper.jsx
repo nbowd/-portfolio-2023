@@ -4,9 +4,14 @@ import React, {useState, useRef, useEffect} from 'react';
 import flag from '../assets/flag.png'
 import bomb from '../assets/bomb.png'
 
+import smileyFace from '../assets/smileyface.png'
+import surpriseFace from '../assets/surpriseface.png'
+import coolFace from '../assets/coolface.png'
+import deadFace from '../assets/deadface.png'
+
 function Minesweeper(props) {
     const BOARD_SIZE = 10;
-    const NUMBER_OF_MINES = 10;
+    const NUMBER_OF_MINES = 2;
     const TILE_STATUSES = {
         HIDDEN: 'hidden',
         MINE: 'mine',
@@ -15,7 +20,7 @@ function Minesweeper(props) {
     }
     const [board, setBoard] = useState([]);
     const [minesLeft, setMinesLeft] = useState(NUMBER_OF_MINES);
-    const [gameOverText, setGameOverText] = useState('');
+    const [gameState, setGameState] = useState('');
     const boardRef = useRef();
 
     function createBoard(boardSize, numberOfMines) {
@@ -54,6 +59,14 @@ function Minesweeper(props) {
                             e.preventDefault(); 
                             markTile(tile)
                         }}
+                        onMouseDown={(e) => {
+                            if (e.button == 0) {
+                                setGameState('holding')}}
+                            }
+                        onMouseUp={(e) => {
+                            if (e.button == 0) {
+                                setGameState('')}}
+                            }
                         style={{color: getNumberColor(tile.adjacentMines)}}
                     >
                         {tile.tileStatus === TILE_STATUSES.MARKED  && <img src={flag} alt='flag icon' className='flag-icon'></img>}
@@ -163,11 +176,11 @@ function Minesweeper(props) {
         }
 
         if (win) {
-            setGameOverText('You Win!')
+            setGameState('win')
         }
 
         if (lose) {
-            setGameOverText('You Lose')
+            setGameState('lose')
             let newBoard = [...board];
             newBoard.forEach(row => {
                 row.forEach(tile => {
@@ -240,6 +253,14 @@ function Minesweeper(props) {
         // console.log(number)
         return color
     }
+
+    function getSmileyFace() {
+        if (gameState === 'win') return coolFace
+        if (gameState === 'lose') return deadFace
+        if (gameState === 'holding') return surpriseFace
+        return smileyFace
+    }
+
     useEffect(() => {
         createBoard(BOARD_SIZE, NUMBER_OF_MINES);
         
@@ -248,9 +269,16 @@ function Minesweeper(props) {
     }, [])
     return (
         <div className='minesweeper'>
-            <h3 className="title">Minesweeper</h3>
-            <div className="subtext">
-            { gameOverText? gameOverText: `Mines Left: ${minesLeft}`}
+            <div className="minesweeper-header">
+                <div className="bomb-counter">
+                    {minesLeft}
+                </div>
+                <div className="smiley-face">
+                    <img src={getSmileyFace()} alt="Smile Face Icon to show game state" />
+                </div>
+                <div className="game-timer">
+                    111
+                </div>
             </div>
             <div className="board" ref={boardRef}>
                 {board.length !== 0 && renderBoard()}
