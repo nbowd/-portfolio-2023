@@ -1,5 +1,6 @@
 import './Minesweeper.css'
 import React, {useState, useRef, useEffect, useCallback} from 'react';
+import { useStopwatch } from 'react-timer-hook';
 
 import flag from '../assets/flag.png'
 import bomb from '../assets/bomb.png'
@@ -11,7 +12,7 @@ import deadFace from '../assets/deadface.png'
 
 function Minesweeper(props) {
     const BOARD_SIZE = 10;
-    const NUMBER_OF_MINES = 2;
+    const NUMBER_OF_MINES = 10;
     const TILE_STATUSES = {
         HIDDEN: 'hidden',
         MINE: 'mine',
@@ -22,9 +23,19 @@ function Minesweeper(props) {
     const [minesLeft, setMinesLeft] = useState(NUMBER_OF_MINES);
     const [gameState, setGameState] = useState('');
     const [gameTime, setGameTime] = useState(0);
-    const [timerRunning, setTimerRunning] = useState(false);
     const boardRef = useRef();
     const smileyRef = useRef();
+
+    const {
+        seconds,
+        minutes,
+        hours,
+        days,
+        isRunning,
+        start,
+        pause,
+        reset,
+    } = useStopwatch(false);
 
     const stopProp = useCallback((e) => {
         e.stopImmediatePropagation()
@@ -144,7 +155,8 @@ function Minesweeper(props) {
             setBoard(newBoard);
             return
         }
-        if (!timerRunning) {
+        if (!isRunning) {
+            // console.log('starting timer');
             startTimer();
         }
         newBoard[tile.x][tile.y].tileStatus = TILE_STATUSES.NUMBER
@@ -181,6 +193,8 @@ function Minesweeper(props) {
         const lose = checkLose();
 
         if (win || lose) {
+
+            pause();
             boardRef.current.addEventListener('click', stopProp)
             boardRef.current.addEventListener('contextmenu', stopProp)
             boardRef.current.addEventListener('mousedown', stopProp)
@@ -274,24 +288,21 @@ function Minesweeper(props) {
         setMinesLeft(NUMBER_OF_MINES)
         setGameState('');
         createBoard(BOARD_SIZE, NUMBER_OF_MINES);
-
-        setTimerRunning(false);
-        setGameTime(0);
+        reset(0, false);
         
         if (gameState === 'win' || gameState === 'lose') {
-            console.log('win or lose')
-            console.log(boardRef.current)
             boardRef.current.removeEventListener('click', stopProp)
             boardRef.current.removeEventListener('contextmenu', stopProp)
             boardRef.current.removeEventListener('mousedown', stopProp)
             boardRef.current.removeEventListener('mouseup', stopProp)
         }
+        // pause();
     }
 
     function startTimer() {
-        setTimerRunning(true)
+        start();
     }
-
+        
     useEffect(() => {
         createBoard(BOARD_SIZE, NUMBER_OF_MINES);
         
@@ -309,7 +320,7 @@ function Minesweeper(props) {
                     <img src={getSmileyFace()} alt="Smile Face Icon to show game state" />
                 </div>
                 <div className="game-timer">
-                    <span>{`${gameTime}`.padStart(3, "0")}</span>
+                    <span>{`${minutes < 1 ? seconds: (minutes * 60) + seconds}`.padStart(3, "0")}</span>
                 </div>
             </div>
             <div className="board" ref={boardRef}>
