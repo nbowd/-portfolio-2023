@@ -1,5 +1,5 @@
 import './Minesweeper.css'
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useRef, useEffect, useCallback} from 'react';
 
 import flag from '../assets/flag.png'
 import bomb from '../assets/bomb.png'
@@ -22,7 +22,12 @@ function Minesweeper(props) {
     const [minesLeft, setMinesLeft] = useState(NUMBER_OF_MINES);
     const [gameState, setGameState] = useState('');
     const boardRef = useRef();
+    const smileyRef = useRef();
 
+    const stopProp = useCallback((e) => {
+        e.stopImmediatePropagation()
+    }, [])
+    
     function createBoard(boardSize, numberOfMines) {
         const newBoard = []
         const minePositions = getMinePositions(boardSize, numberOfMines) 
@@ -60,6 +65,7 @@ function Minesweeper(props) {
                             markTile(tile)
                         }}
                         onMouseDown={(e) => {
+                            console.log('down');
                             if (e.button == 0) {
                                 setGameState('holding')}}
                             }
@@ -171,8 +177,10 @@ function Minesweeper(props) {
         const lose = checkLose();
 
         if (win || lose) {
-            boardRef.current.addEventListener('click', stopProp, { capture: true })
-            boardRef.current.addEventListener('contextmenu', stopProp, { capture: true })
+            boardRef.current.addEventListener('click', stopProp)
+            boardRef.current.addEventListener('contextmenu', stopProp)
+            boardRef.current.addEventListener('mousedown', stopProp)
+            boardRef.current.addEventListener('mouseup', stopProp)
         }
 
         if (win) {
@@ -193,10 +201,6 @@ function Minesweeper(props) {
                 })
             })
         }
-    }
-
-    function stopProp(e) {
-        e.stopImmediatePropagation()
     }
 
     function checkWin() {
@@ -261,6 +265,21 @@ function Minesweeper(props) {
         return smileyFace
     }
 
+    function resetGame() {
+        setBoard([]);
+        setMinesLeft(NUMBER_OF_MINES)
+        setGameState('');
+        createBoard(BOARD_SIZE, NUMBER_OF_MINES);
+        if (gameState === 'win' || gameState === 'lose') {
+            console.log('win or lose')
+            console.log(boardRef.current)
+            boardRef.current.removeEventListener('click', stopProp)
+            boardRef.current.removeEventListener('contextmenu', stopProp)
+            boardRef.current.removeEventListener('mousedown', stopProp)
+            boardRef.current.removeEventListener('mouseup', stopProp)
+        }
+    }
+
     useEffect(() => {
         createBoard(BOARD_SIZE, NUMBER_OF_MINES);
         
@@ -273,7 +292,7 @@ function Minesweeper(props) {
                 <div className="bomb-counter">
                     {minesLeft}
                 </div>
-                <div className="smiley-face">
+                <div ref={smileyRef} onMouseDown={() => smileyRef.current.classList.add("pressed")} onMouseUp={() => smileyRef.current.classList.remove("pressed")} className="smiley-face" onClick={() => resetGame()}>
                     <img src={getSmileyFace()} alt="Smile Face Icon to show game state" />
                 </div>
                 <div className="game-timer">

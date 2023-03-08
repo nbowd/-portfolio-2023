@@ -112,3 +112,11 @@
 .flag-icon, .bomb-icon {
   height: 20px;
 }
+
+.pressed {
+  /* background-color: blue; */
+  border-top: 4px solid #9a9a9a;
+  border-right: 2px solid #9a9a9a;
+  border-bottom: 2px solid #9a9a9a;
+  border-left: 4px solid #9a9a9a;
+}
