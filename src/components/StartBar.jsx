@@ -19,7 +19,7 @@ function StartBar({props}) {
       return function cleanup() {
         clearInterval(timer)
       }
-    })
+    },[])
 
     const handleTabClick = (ref, page) => {
       selected === page ? setSelected("") : setSelected(page);

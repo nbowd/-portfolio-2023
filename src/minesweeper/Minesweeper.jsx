@@ -21,6 +21,8 @@ function Minesweeper(props) {
     const [board, setBoard] = useState([]);
     const [minesLeft, setMinesLeft] = useState(NUMBER_OF_MINES);
     const [gameState, setGameState] = useState('');
+    const [gameTime, setGameTime] = useState(0);
+    const [timerRunning, setTimerRunning] = useState(false);
     const boardRef = useRef();
     const smileyRef = useRef();
 
@@ -142,7 +144,9 @@ function Minesweeper(props) {
             setBoard(newBoard);
             return
         }
-
+        if (!timerRunning) {
+            startTimer();
+        }
         newBoard[tile.x][tile.y].tileStatus = TILE_STATUSES.NUMBER
         const adjacentTiles = nearbyTiles(tile)
         const mines = adjacentTiles.filter(t => t.mine)
@@ -270,6 +274,10 @@ function Minesweeper(props) {
         setMinesLeft(NUMBER_OF_MINES)
         setGameState('');
         createBoard(BOARD_SIZE, NUMBER_OF_MINES);
+
+        setTimerRunning(false);
+        setGameTime(0);
+        
         if (gameState === 'win' || gameState === 'lose') {
             console.log('win or lose')
             console.log(boardRef.current)
@@ -280,23 +288,28 @@ function Minesweeper(props) {
         }
     }
 
+    function startTimer() {
+        setTimerRunning(true)
+    }
+
     useEffect(() => {
         createBoard(BOARD_SIZE, NUMBER_OF_MINES);
         
         const boardElement = document.querySelector(".board");
         boardElement.style.setProperty("--size", BOARD_SIZE);
+
     }, [])
     return (
         <div className='minesweeper'>
             <div className="minesweeper-header">
                 <div className="bomb-counter">
-                    {minesLeft}
+                    <span>{ minesLeft >= 0? `${minesLeft}`.padStart(3, "0"): '-' + `${Math.abs(minesLeft)}`.padStart(2, "0")}</span>
                 </div>
                 <div ref={smileyRef} onMouseDown={() => smileyRef.current.classList.add("pressed")} onMouseUp={() => smileyRef.current.classList.remove("pressed")} className="smiley-face" onClick={() => resetGame()}>
                     <img src={getSmileyFace()} alt="Smile Face Icon to show game state" />
                 </div>
                 <div className="game-timer">
-                    111
+                    <span>{`${gameTime}`.padStart(3, "0")}</span>
                 </div>
             </div>
             <div className="board" ref={boardRef}>
