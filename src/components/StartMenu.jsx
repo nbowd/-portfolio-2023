@@ -47,7 +47,7 @@ function StartMenu(props) {
                 </div>
                 <hr className='menu-divider'/>
                 <div className="menu-option">
-                    <a href="">
+                    <a href="javascript:void(0);">
                         <img src={shutdownIcon} alt="" id='menu-shutdown' />
                         <div className='menu-option-text'><h2>Shut Down...</h2></div>
                     </a>

@@ -2,6 +2,7 @@ import './StartBar.css'
 import React, {useState, useEffect, useContext, useRef, createRef} from 'react';
 import GlobalContext from '../GlobalContext';
 
+import win95Icon from '../assets/win95.png'
 import defaultIcon from '../assets/file.png'
 import myComputer from '../assets/mycomputer.png'
 import recycleBin from '../assets/recycle.png'
@@ -110,9 +111,9 @@ function StartBar({props}) {
             <div className="start-bar-left">
                 {openMenu
                 ? 
-                <button className='start-button clicked' onClick={()=>setOpenMenu(!openMenu)}><span><img src="src\assets\win95.png" alt="w95 icon" className='win95-icon'/> Start</span></button>
+                <button className='start-button clicked' onClick={()=>setOpenMenu(!openMenu)}><span><img src={win95Icon} alt="w95 icon" className='win95-icon'/> Start</span></button>
                 :
-                <button className='start-button' onClick={()=>setOpenMenu(!openMenu)}><img src="src\assets\win95.png" alt="w95 icon" className='win95-icon'/> Start</button>
+                <button className='start-button' onClick={()=>setOpenMenu(!openMenu)}><img src={win95Icon} alt="w95 icon" className='win95-icon'/> Start</button>
                 }
 
                 {pages.map((page, index) => 
