@@ -27,7 +27,7 @@ function HomepageIcons() {
                     alt="My Bio Icon"
                 />
             </div>
-            <div className="homepage-item" onClick={(e)=>handleClick(e, 'Recycle Bin')}>
+            <div className="homepage-item">
                 <Icon 
                     name="Recycle Bin"
                     image={recycleBin}

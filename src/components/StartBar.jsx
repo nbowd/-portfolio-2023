@@ -2,6 +2,12 @@ import './StartBar.css'
 import React, {useState, useEffect, useContext, useRef, createRef} from 'react';
 import GlobalContext from '../GlobalContext';
 
+import defaultIcon from '../assets/file.png'
+import myComputer from '../assets/mycomputer.png'
+import recycleBin from '../assets/recycle.png'
+import projectsIcon from '../assets/folder.png'
+import minesweeperIcon from '../assets/minesweeper.png'
+
 function StartBar({props}) {
     const {bioRef, recycleRef, resumeRef, projectsRef, jamSessionRef, marinaAPIRef, booknookRef, crowdFlowRef, minesweeperRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
 
@@ -81,6 +87,24 @@ function StartBar({props}) {
       }
 
     }
+
+    const getProgramIcon = (page) => {
+      let image = defaultIcon;
+      if (page === 'Bio') {
+        image = myComputer
+      }
+      if (page === 'Recycle Bin') {
+        image = recycleBin
+      }
+      if (page === 'Projects') {
+        image = projectsIcon
+      }
+      if (page === 'Minesweeper') {
+        image = minesweeperIcon
+      }      
+      return <img src={image} alt="Program Icon" className='tab-icon'/>
+    }
+
     return (
         <div className='start-bar'>
             <div className="start-bar-left">
@@ -99,7 +123,11 @@ function StartBar({props}) {
                     onClick={() =>  handleTabClick(allItemRefs.current[index], page)}
                     className={selected === page ? 'program-button clicked' : 'program-button notClicked'}
                   >
-                    {page}
+                    <span className="button-text">
+
+                      {getProgramIcon(page)}
+                      {page}
+                    </span>
                   </button>
                 )}
             </div>

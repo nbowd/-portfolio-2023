@@ -76,7 +76,7 @@ function JamSessionModal() {
                         <a href="https://github.com/iDoc1/Jam-Session">
                             <Icon image={githubLogo}/>
                         </a>
-                        <a href="https://www.youtube.com/watch?v=eTqZM5ntU-M">
+                        <a href="https://www.youtube.com/watch?v=eTqZM5ntU-M&t=32">
                             <Icon image={youtubeLogo}/>
                         </a>
                     </div>

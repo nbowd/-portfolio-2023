@@ -44,13 +44,17 @@
 }
 
 .program-button {
-    background-color: var(--primaryBg);
+    /* background-color: var(--primaryBg); */
     width: 11rem;
     font-size: 1.5rem;
     border-top: 2px solid white;
     border-right: 2px solid black;
     border-bottom: 2px solid black;
     border-left: 2px solid white;
+    display: flex;
+    align-items: center;
+    background-color: red;
+
 }
 
 .notClicked {
@@ -81,3 +85,13 @@
     height: 2.4rem;
 }
 
+.tab-icon {
+    height: 1.6rem;
+    margin-right: .5rem;
+}
+
+.button-text {
+    display: flex;
+    /* align-items: center; */
+    align-items: flex-end;
+}

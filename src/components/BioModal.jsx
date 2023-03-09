@@ -75,7 +75,7 @@ function BioModal() {
                         <h1>Nick Bowden</h1>
                         <h2>Software Engineer</h2>
 
-                        <h2 className="bio-title">
+                        <h2 className="bio-title about-me">
                         <b>
                             <u>About Me</u>
                         </b>

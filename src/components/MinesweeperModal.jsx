@@ -5,6 +5,7 @@ import GlobalContext from "../GlobalContext";
 import Minesweeper from "../minesweeper/Minesweeper";
 
 import fileIcon from '../assets/file.png'
+import minesweeperIcon from '../assets/minesweeper.png'
 
 function MinesweeperModal() {
     const {minesweeperRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
@@ -60,7 +61,7 @@ function MinesweeperModal() {
         >
                 <div className="modal-header" {...bindWindowPos()} >
                     <div className="header-left">
-                        <img src={fileIcon} alt="" />
+                        <img src={minesweeperIcon} alt="" />
                         <h2>Minesweeper</h2>
                     </div>
                     <div className="header-right">

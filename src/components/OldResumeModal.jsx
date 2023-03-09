@@ -3,7 +3,7 @@ import GlobalContext from "../GlobalContext";
 import { useDrag } from "@use-gesture/react";
 
 import fileIcon from '../assets/file.png'
-import napkin from '../assets/napkin.png'
+// import napkin from '../assets/napkin.png'
 
 function OldResumeModal() {
     const {resumeRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
@@ -72,7 +72,7 @@ function OldResumeModal() {
                     
                 </div>
                 <div className="resume-body">
-                    <img src={napkin} alt="" />
+                    {/* <img src={napkin} alt="" /> */}
                 </div>
         </div>
     );

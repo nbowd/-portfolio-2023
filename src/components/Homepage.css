@@ -21,12 +21,6 @@
   color: white;
 }
 
-.homepage-item:hover {
-  background-color: rgba(154,154,154, 0.3);
-  border: 1px solid #9a9a9a;
-  padding:.25rem;
-}
-
 .item-title {
   display: flex;
   align-items: center;
