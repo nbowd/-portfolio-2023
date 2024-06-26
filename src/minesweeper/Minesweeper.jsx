@@ -78,7 +78,6 @@ function Minesweeper(props) {
                             markTile(tile)
                         }}
                         onMouseDown={(e) => {
-                            console.log('down');
                             if (e.button == 0) {
                                 setGameState('holding')}}
                             }
@@ -156,7 +155,6 @@ function Minesweeper(props) {
             return
         }
         if (!isRunning) {
-            // console.log('starting timer');
             startTimer();
         }
         newBoard[tile.x][tile.y].tileStatus = TILE_STATUSES.NUMBER
@@ -272,7 +270,6 @@ function Minesweeper(props) {
                 color = '#'
                 break;
         }
-        // console.log(number)
         return color
     }
 

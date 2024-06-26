@@ -37,7 +37,6 @@ function StartBar({props}) {
             ? "none"
             : "flex";
       } else if (page === "Recycle Bin") {
-        console.log('rec')
         recycleRef.current.style.display = 
           recycleRef.current.style.display === "flex" &&
           recycleRef.current.classList.contains("top")
