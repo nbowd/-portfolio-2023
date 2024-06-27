@@ -3,6 +3,7 @@ import React, { useState, useContext } from "react";
 import GlobalContext from "../GlobalContext";
 import { useDrag } from "@use-gesture/react";
 
+import maximizeIcon from '../assets/maximize.png'
 import Icon from "./Icon";
 
 import myComputer from "../assets/mycomputer.png"
@@ -63,7 +64,7 @@ function BioModal() {
                         </div>
                         <div className="header-right">
                             <button onClick={handleMinimize}>_</button>
-                            <button onClick={handleFullscreen}>O</button>
+                            <button onClick={handleFullscreen}><img src={maximizeIcon} className="maximize"/></button>
                             <button  className="close-modal" onClick={handleClose}>
                                 X
                             </button>

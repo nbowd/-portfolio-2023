@@ -5,6 +5,7 @@ import GlobalContext from "../GlobalContext";
 import Minesweeper from "../minesweeper/Minesweeper";
 
 import fileIcon from '../assets/file.png'
+import maximizeIcon from '../assets/maximize.png'
 import minesweeperIcon from '../assets/minesweeper.png'
 
 function MinesweeperModal() {
@@ -66,7 +67,7 @@ function MinesweeperModal() {
                     </div>
                     <div className="header-right">
                         <button onClick={handleMinimize} onPointerDown={(e) => miniDown(e)}>_</button>
-                        <button disabled>O</button>
+                        <button disabled><img src={maximizeIcon} className="maximize"/></button>
                         <button  className="close-modal" onClick={handleClose}>
                             X
                         </button>

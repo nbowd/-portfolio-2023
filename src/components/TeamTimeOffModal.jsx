@@ -5,6 +5,7 @@ import GlobalContext from "../GlobalContext";
 import Icon from "./Icon";
 
 import fileIcon from '../assets/file.png'
+import maximizeIcon from '../assets/maximize.png'
 import githubLogo from '../assets/icons8-github-50.png'
 import webIcon from '../assets/icons8-globe-50.png'
 import TeamTimeOffThumb from '../assets/TeamTimeOffThumb.png'
@@ -58,7 +59,7 @@ function TeamTimeOffModal() {
                     </div>
                     <div className="header-right">
                         <button onClick={handleMinimize} onPointerDown={(e) => miniDown(e)}>_</button>
-                        <button onClick={handleFullscreen}>O</button>
+                        <button onClick={handleFullscreen}><img src={maximizeIcon} className="maximize"/></button>
                         <button  className="close-modal" onClick={handleClose}>
                             X
                         </button>

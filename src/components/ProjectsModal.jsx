@@ -5,6 +5,7 @@ import Icon from "./Icon";
 
 import folderIcon from '../assets/folder.png'
 import fileIcon from '../assets/file.png'
+import maximizeIcon from '../assets/maximize.png'
 
 
 function ProjectsModal() {
@@ -66,7 +67,7 @@ function ProjectsModal() {
                     </div>
                     <div className="header-right">
                         <button onClick={handleMinimize} onPointerDown={(e) => miniDown(e)}>_</button>
-                        <button onClick={handleFullscreen}>O</button>
+                        <button onClick={handleFullscreen}><img src={maximizeIcon} className="maximize"/></button>
                         <button  className="close-modal" onClick={handleClose}>
                             X
                         </button>

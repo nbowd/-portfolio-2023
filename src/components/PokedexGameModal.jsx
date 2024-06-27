@@ -6,6 +6,7 @@ import Icon from "./Icon";
 
 import fileIcon from '../assets/file.png'
 import webIcon from '../assets/icons8-globe-50.png'
+import maximizeIcon from '../assets/maximize.png'
 import PokedexGameThumb from '../assets/PokedexGameThumb.png'
 
 function PokedexGameModal() {
@@ -57,7 +58,7 @@ function PokedexGameModal() {
                     </div>
                     <div className="header-right">
                         <button onClick={handleMinimize} onPointerDown={(e) => miniDown(e)}>_</button>
-                        <button onClick={handleFullscreen}>O</button>
+                        <button onClick={handleFullscreen} ><img src={maximizeIcon} className="maximize"/></button>
                         <button  className="close-modal" onClick={handleClose}>
                             X
                         </button>
@@ -77,7 +78,6 @@ function PokedexGameModal() {
                             <Icon image={webIcon} alt="Globe web icon" />
                         </a>
                     </div>
-
                 </div>
         </div>
     );

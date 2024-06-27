@@ -4,6 +4,7 @@ import { useDrag } from "@use-gesture/react";
 import GlobalContext from "../GlobalContext";
 import Icon from "./Icon";
 
+import maximizeIcon from '../assets/maximize.png'
 import fileIcon from '../assets/file.png'
 import githubLogo from '../assets/icons8-github-50.png'
 import youtubeLogo from '../assets/icons8-youtube-48.png'
@@ -58,7 +59,7 @@ function JamSessionModal() {
                     </div>
                     <div className="header-right">
                         <button onClick={handleMinimize} onPointerDown={(e) => miniDown(e)}>_</button>
-                        <button onClick={handleFullscreen}>O</button>
+                        <button onClick={handleFullscreen}><img src={maximizeIcon} className="maximize"/></button>
                         <button  className="close-modal" onClick={handleClose}>
                             X
                         </button>
