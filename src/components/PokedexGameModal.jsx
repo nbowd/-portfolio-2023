@@ -5,12 +5,11 @@ import GlobalContext from "../GlobalContext";
 import Icon from "./Icon";
 
 import fileIcon from '../assets/file.png'
-import githubLogo from '../assets/icons8-github-50.png'
 import webIcon from '../assets/icons8-globe-50.png'
-import BooknookThumb from '../assets/BooknookThumb.png'
+import PokedexGameThumb from '../assets/PokedexGameThumb.png'
 
-function BooknookModal() {
-    const {booknookRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
+function PokedexGameModal() {
+    const {pokedexGameRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
     const [windowPosition, setWindowPosition] = useState({ x: 0, y: 0 });
     const bindWindowPos = useDrag((params) => {
         setWindowPosition({
@@ -23,38 +22,38 @@ function BooknookModal() {
     };    
 
     const handleClick = () => {
-      setSelected("Booknook")
+      setSelected("PokedexGame")
     }
 
     const handleClose = () => {
-        setPages(pages.filter(page => page !== 'Booknook'))
+        setPages(pages.filter(page => page !== 'PokedexGame'))
     }
 
     const handleMinimize = () => {
-        booknookRef.current.style.display = 'none'
+        pokedexGameRef.current.style.display = 'none'
         setSelected("")
     }
 
     const handleFullscreen = () => {
-      booknookRef.current.classList.toggle("fullscreen")
+      pokedexGameRef.current.classList.toggle("fullscreen")
     }
 
     return (
         <div 
             onPointerDown={handleClick}
             style={{
-                display: pages.includes("Booknook") ? "flex": "none",
+                display: pages.includes("PokedexGame") ? "flex": "none",
                 left: windowPosition.x,
                 top: windowPosition.y
             }}
-            ref={booknookRef}
-            className={selected === "Booknook" ? "individual-project top" : "individual-project"}
+            ref={pokedexGameRef}
+            className={selected === "PokedexGame" ? "individual-project top" : "individual-project"}
             id='jam-session-modal'
         >
                 <div className="modal-header" {...bindWindowPos()} >
                     <div className="header-left">
                         <img src={fileIcon} alt="" />
-                        <h2>Booknook</h2>
+                        <h2>Pokedex Game</h2>
                     </div>
                     <div className="header-right">
                         <button onClick={handleMinimize} onPointerDown={(e) => miniDown(e)}>_</button>
@@ -66,16 +65,15 @@ function BooknookModal() {
                     
                 </div>
                 <div className="project-body">
-                    <h1>Booknook</h1>
-                    <img src={BooknookThumb} alt="" className="project-thumbnail"/>
+                    <h1>Pokedex Game</h1>
+                    <img src={PokedexGameThumb} alt="" className="project-thumbnail"/>
                     <h2>About This Project</h2>
 
-                    <p>Booknook is a web application to discover unique book recommendations based on the subject. This project was built as part of an Agile team to develop using micro-services. When a subject is selected, a call is made to the OpenLibraryAPI to retrieve randomized results. Users can get more information about each book which includes a description, a vendor link, and save options if logged in. Users can create an account and log in, to save books that they find for later.</p>
+                    <p>This was a fun side project that I started out as a self challenge to recreate a Pokedex using HTML, CSS, and SVG. After I finished it, I wanted to add an interactive element to it. It was perfect for making a small Pokemon identification game using JavaScript.</p>
+                    <p>A random Pokemon is chosen from the user selected generations using a free Pokemon api, the image is distorted using heavy pixelation from the react-pixelate library. The player gets 5 chances to guess the correct Pokemon with each incorrect guess slowly reducing the distortion until the clear image is revealed. It is quick, fun, and accessible to all Pokeman fans because you can lock the game to only include known or favorite generations.</p>
+                    
                     <div className="logos">
-                        <a href="https://github.com/nbowd/booknook">
-                            <Icon image={githubLogo} alt="GitHub Logo"/>
-                        </a>
-                        <a href="https://try-booknook.herokuapp.com/">
+                        <a href="https://whodatpokemon.netlify.app/">
                             <Icon image={webIcon} alt="Globe web icon" />
                         </a>
                     </div>
@@ -85,4 +83,4 @@ function BooknookModal() {
     );
 }
 
-export default BooknookModal;
+export default PokedexGameModal;

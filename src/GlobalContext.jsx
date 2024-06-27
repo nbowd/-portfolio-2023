@@ -10,7 +10,9 @@ export function GlobalProvider({children}) {
     const jamSessionRef = useRef(); 
     const marinaAPIRef = useRef(); 
     const booknookRef = useRef(); 
+    const teamTimeOffRef = useRef(); 
     const crowdFlowRef = useRef(); 
+    const pokedexGameRef = useRef(); 
     const minesweeperRef = useRef(); 
     
 
@@ -28,7 +30,9 @@ export function GlobalProvider({children}) {
                 jamSessionRef,
                 marinaAPIRef,
                 booknookRef,
+                teamTimeOffRef,
                 crowdFlowRef,
+                pokedexGameRef,
                 minesweeperRef,
                 pages, 
                 setPages, 

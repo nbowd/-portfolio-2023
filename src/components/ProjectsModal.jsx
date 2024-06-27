@@ -81,10 +81,10 @@ function ProjectsModal() {
                         alt="JamSession Project Icon"
                     />
                     <Icon 
-                        name="MarinaAPI"
-                        handleClick={(e) => handleIconClick(e, "Marina API")}
+                        name="TeamTimeOff"
+                        handleClick={(e) => handleIconClick(e, "TeamTimeOff")}
                         image={fileIcon}
-                        alt="Marina API Project Icon"
+                        alt="Team Time Off Project Icon"
                     />
                     <Icon 
                         name="Booknook"
@@ -93,10 +93,22 @@ function ProjectsModal() {
                         alt="Booknook Project Icon"
                     />
                     <Icon 
+                        name="MarinaAPI"
+                        handleClick={(e) => handleIconClick(e, "Marina API")}
+                        image={fileIcon}
+                        alt="Marina API Project Icon"
+                    />
+                    <Icon 
                         name="CrowdFlow"
                         handleClick={(e) => handleIconClick(e, "CrowdFlow")}
                         image={fileIcon}
                         alt="CrowdFlow Project Icon"
+                    />
+                    <Icon 
+                        name="PokedexGame"
+                        handleClick={(e) => handleIconClick(e, "PokedexGame")}
+                        image={fileIcon}
+                        alt="Pokedex Game Project Icon"
                     />
                 </div>
         </div>

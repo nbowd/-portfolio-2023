@@ -7,10 +7,10 @@ import Icon from "./Icon";
 import fileIcon from '../assets/file.png'
 import githubLogo from '../assets/icons8-github-50.png'
 import webIcon from '../assets/icons8-globe-50.png'
-import BooknookThumb from '../assets/BooknookThumb.png'
+import TeamTimeOffThumb from '../assets/TeamTimeOffThumb.png'
 
-function BooknookModal() {
-    const {booknookRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
+function TeamTimeOffModal() {
+    const {teamTimeOffRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
     const [windowPosition, setWindowPosition] = useState({ x: 0, y: 0 });
     const bindWindowPos = useDrag((params) => {
         setWindowPosition({
@@ -23,38 +23,38 @@ function BooknookModal() {
     };    
 
     const handleClick = () => {
-      setSelected("Booknook")
+      setSelected("TeamTimeOff")
     }
 
     const handleClose = () => {
-        setPages(pages.filter(page => page !== 'Booknook'))
+        setPages(pages.filter(page => page !== 'TeamTimeOff'))
     }
 
     const handleMinimize = () => {
-        booknookRef.current.style.display = 'none'
+        teamTimeOffRef.current.style.display = 'none'
         setSelected("")
     }
 
     const handleFullscreen = () => {
-      booknookRef.current.classList.toggle("fullscreen")
+      teamTimeOffRef.current.classList.toggle("fullscreen")
     }
 
     return (
         <div 
             onPointerDown={handleClick}
             style={{
-                display: pages.includes("Booknook") ? "flex": "none",
+                display: pages.includes("TeamTimeOff") ? "flex": "none",
                 left: windowPosition.x,
                 top: windowPosition.y
             }}
-            ref={booknookRef}
-            className={selected === "Booknook" ? "individual-project top" : "individual-project"}
+            ref={teamTimeOffRef}
+            className={selected === "TeamTimeOff" ? "individual-project top" : "individual-project"}
             id='jam-session-modal'
         >
                 <div className="modal-header" {...bindWindowPos()} >
                     <div className="header-left">
                         <img src={fileIcon} alt="" />
-                        <h2>Booknook</h2>
+                        <h2>Team Time Off</h2>
                     </div>
                     <div className="header-right">
                         <button onClick={handleMinimize} onPointerDown={(e) => miniDown(e)}>_</button>
@@ -66,16 +66,18 @@ function BooknookModal() {
                     
                 </div>
                 <div className="project-body">
-                    <h1>Booknook</h1>
-                    <img src={BooknookThumb} alt="" className="project-thumbnail"/>
+                    <h1>Team Time Off</h1>
+                    <img src={TeamTimeOffThumb} alt="" className="project-thumbnail"/>
                     <h2>About This Project</h2>
 
-                    <p>Booknook is a web application to discover unique book recommendations based on the subject. This project was built as part of an Agile team to develop using micro-services. When a subject is selected, a call is made to the OpenLibraryAPI to retrieve randomized results. Users can get more information about each book which includes a description, a vendor link, and save options if logged in. Users can create an account and log in, to save books that they find for later.</p>
+                    <p>The purpose of this project was to sharpen my full-stack skills through a simulated real-world project. I wanted to explore using some new tools, such as the suite of tools from Firebase, and to build an application that could solve an internal business problem. </p>
+
+                    <p>The scenario for this application is that there is a small team that needs a better way to manage time off requests as the team currently handles it manually. They need a way to make and manage requests, which will be approved by managers, and will display approved request days so that everyone can plan.</p>
                     <div className="logos">
-                        <a href="https://github.com/nbowd/booknook">
+                        <a href="https://github.com/nbowd/team-time-off">
                             <Icon image={githubLogo} alt="GitHub Logo"/>
                         </a>
-                        <a href="https://try-booknook.herokuapp.com/">
+                        <a href="https://team-time-off.vercel.app/">
                             <Icon image={webIcon} alt="Globe web icon" />
                         </a>
                     </div>
@@ -85,4 +87,4 @@ function BooknookModal() {
     );
 }
 
-export default BooknookModal;
+export default TeamTimeOffModal;
