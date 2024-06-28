@@ -44,8 +44,7 @@
 }
 
 .program-button {
-    /* background-color: var(--primaryBg); */
-    width: 11rem;
+    width: 12rem;
     font-size: 1.5rem;
     border-top: 2px solid white;
     border-right: 2px solid black;
@@ -53,7 +52,6 @@
     border-left: 2px solid white;
     display: flex;
     align-items: center;
-    background-color: red;
 
 }
 
@@ -92,6 +90,5 @@
 
 .button-text {
     display: flex;
-    /* align-items: center; */
     align-items: flex-end;
 }

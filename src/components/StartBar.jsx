@@ -10,7 +10,7 @@ import projectsIcon from '../assets/folder.png'
 import minesweeperIcon from '../assets/minesweeper.png'
 
 function StartBar({props}) {
-    const {bioRef, recycleRef, resumeRef, projectsRef, jamSessionRef, marinaAPIRef, booknookRef, crowdFlowRef, minesweeperRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
+    const {bioRef, recycleRef, resumeRef, projectsRef, jamSessionRef, marinaAPIRef, booknookRef, crowdFlowRef, teamTimeOffRef, pokedexGameRef, minesweeperRef, pages, setPages, selected, setSelected } = useContext(GlobalContext);
 
     const allItemRefs = useRef([]);
 
@@ -78,7 +78,19 @@ function StartBar({props}) {
           crowdFlowRef.current.classList.contains("top")
             ? "none"
             : "flex";
-      } else if (page === "Minesweeper") {
+      } else if (page === "TeamTimeOff") {
+        teamTimeOffRef.current.style.display = 
+          teamTimeOffRef.current.style.display === "flex" &&
+          teamTimeOffRef.current.classList.contains("top")
+            ? "none"
+            : "flex";
+      }else if (page === "PokedexGame") {
+        pokedexGameRef.current.style.display = 
+          pokedexGameRef.current.style.display === "flex" &&
+          pokedexGameRef.current.classList.contains("top")
+            ? "none"
+            : "flex";
+      }else if (page === "Minesweeper") {
         minesweeperRef.current.style.display = 
           minesweeperRef.current.style.display === "flex" &&
           minesweeperRef.current.classList.contains("top")
