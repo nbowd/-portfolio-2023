@@ -11,6 +11,8 @@
 
 .start-bar-left {
     display: flex;
+    width: 100%;
+    overflow: hidden;
 }
 
 .start-bar button {
@@ -52,7 +54,13 @@
     border-left: 2px solid white;
     display: flex;
     align-items: center;
+    overflow: hidden;
 
+}
+
+.program-button span span {
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .notClicked {

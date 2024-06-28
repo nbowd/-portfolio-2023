@@ -74,6 +74,9 @@ function ProjectsModal() {
                     </div>
                     
                 </div>
+                <div className="window-top">
+                    <span><u>F</u>ile</span><span><u>E</u>dit</span><span><u>V</u>iew</span><span><u>H</u>elp</span>
+                </div>
                 <div className="window-body">
                     <Icon 
                         name="JamSession"
@@ -111,6 +114,12 @@ function ProjectsModal() {
                         image={fileIcon}
                         alt="Pokedex Game Project Icon"
                     />
+                </div>
+                <div className="window-bottom">
+                    <div className="folder-info">
+                        <span>6 object(s)</span>
+                    </div>
+                    <div className="folder-info"></div>
                 </div>
         </div>
     );

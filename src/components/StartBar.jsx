@@ -138,7 +138,7 @@ function StartBar({props}) {
                     <span className="button-text">
 
                       {getProgramIcon(page)}
-                      {page}
+                      <span>{page}</span>
                     </span>
                   </button>
                 )}
